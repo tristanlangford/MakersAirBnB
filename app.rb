@@ -1,9 +1,13 @@
 require 'sinatra/base'
 
-class Makers_bnb < Sinatra::Base 
+class Makers_bnb < Sinatra::Base
 
   get ('/') do
     erb :index
+  end
+
+  get ('/view_properties') do
+    'Available Properties'
   end
 
 
