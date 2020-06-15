@@ -1,4 +1,4 @@
-class Properties
+class Property
 
     attr_reader :name, :price, :description, :id
 

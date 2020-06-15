@@ -7,7 +7,7 @@ class Model_Makers_bnb
 
         properties = Database_connection.query("SELECT * FROM properties")
 
-        properties.map { |row| Properties.new( row["name"], row["price"], row["description"], row["prop_id"])}
+        properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"])}
     end
 
 end
