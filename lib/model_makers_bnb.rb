@@ -3,7 +3,7 @@ require_relative 'properties'
 
 class Model_Makers_bnb 
 
-    def get_properties 
+    def self.get_properties 
         connection = PG.connect :dbname => 'airbnb_test'
 
         properties = connection.exec("SELECT * FROM properties")
