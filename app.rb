@@ -3,7 +3,7 @@ require 'sinatra/base'
 class Makers_bnb < Sinatra::Base 
 
   get ('/') do
-    'Makers BnB'
+    erb :index
   end
 
 
