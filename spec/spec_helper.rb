@@ -1,6 +1,13 @@
-require_relative 'setup_test_database'
-
 ENV["RACK_ENV"] = "test"
+
+require_relative 'setup_test_database'
+require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require 'capybara'
+require 'rspec'
+require 'capybara/rspec'
+
+Capybara.app = Makers_bnb
+
 require_relative '../database_connection_setup'
 
 RSpec.configure do |config|
@@ -9,7 +16,6 @@ RSpec.configure do |config|
       }
  
   config.expect_with :rspec do |expectations|
-      
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 

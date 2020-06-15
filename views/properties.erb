@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='./style.css'>
+    <title>Makers BnB</title>
+  </head>
+  <body>
+    <h1>Available Properties</h1>
+    <p>
+    <div id = 'container'>
+      <%@properties.each do |property| %>
+      <div id = 'property'>
+        <span>Title: <%=property[:name]%></span>
+        <br>
+        <span><%=property[:price]%>/night</span>
+        <br>
+        <span>Description: <%=property[:description]%></span>
+      </div>
+      <br>
+      <%end%>
+    </div>
+    </p>
+  </body>
+</html>
