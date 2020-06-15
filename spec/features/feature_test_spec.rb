@@ -20,5 +20,10 @@ feature Makers_bnb do
       visit('/view_properties')
       expect(page).to have_content('/night')
     end
+
+    scenario 'has a description for each property' do
+      visit('/view_properties')
+      expect(page).to have_content('Description')
+    end
   end
 end
