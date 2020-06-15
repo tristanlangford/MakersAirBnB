@@ -46,6 +46,10 @@ As a holiday maker,
 so that I can see if a space is available when I want,
 I would like to be able to see a range of dates when a space is of available
 
+As a property owner,
+so that I avoid double-booking
+I would like the date range to show when a propert is already booked
+
 As a holiday maker, 
 so that I can book a space,
 I would like to be able to book a property
@@ -53,6 +57,10 @@ I would like to be able to book a property
 As a property owner,
 so that I can control who books my property,
 I would like to be able to confirm before booking
+
+As a propert owner 
+so that I can choose between multiple booking requests,
+My property should remain avialable until I've confirmed a request. 
 
 As a property owner, 
 so that that I make loads of money,
