@@ -4,9 +4,8 @@ require_relative 'properties'
 class Model_Makers_bnb 
 
     def self.get_properties 
-        connection = PG.connect :dbname => 'airbnb_test'
 
-        properties = connection.exec("SELECT * FROM properties")
+        properties = Database_connection.query("SELECT * FROM properties")
 
         properties.map { |row| Properties.new( row["name"], row["price"], row["description"], row["prop_id"])}
     end

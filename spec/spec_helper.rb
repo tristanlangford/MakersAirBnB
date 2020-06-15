@@ -1,5 +1,7 @@
 require_relative 'setup_test_database'
 
+ENV["RACK_ENV"] = "test"
+require_relative '../database_connection_setup'
 
 RSpec.configure do |config|
   config.before(:each) {
