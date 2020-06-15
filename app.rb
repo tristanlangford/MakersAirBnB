@@ -7,6 +7,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/view_properties') do
+    @properties = Model_Makers_bnb.get_properties
     erb :properties
   end
 
