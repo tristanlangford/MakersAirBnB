@@ -7,13 +7,15 @@
   <body>
     <h1>Available Properties</h1>
     <p>
+      <%@properties.each do |property| %>
       <div>
-        <span>Title</span>
+        <span>Title: <%=property[:name]%></span>
         <br>
-        <span>/night</span>
+        <span><%=property[:price]%>/night</span>
         <br>
-        <span>Description</span>
+        <span>Description: <%=property[:description]%></span>
       </div>
+      <%end%>
     </p>
   </body>
 </html>

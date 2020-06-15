@@ -7,8 +7,8 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/view_properties') do
+    @properties = [ {name: 'home one', price: '35', description: 'cheap and nasty'}, {name: 'home two', price: '200', description: 'not cheap and nasty'}]
     erb :properties
-    # @properties = Model_Makers_bnb.get_properties
   end
 
 
