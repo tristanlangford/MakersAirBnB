@@ -7,6 +7,7 @@
   <body>
     <h1>Available Properties</h1>
     <p>
+    <div id = 'container'>
       <%@properties.each do |property| %>
       <div id = 'property'>
         <span>Title: <%=property[:name]%></span>
@@ -15,7 +16,9 @@
         <br>
         <span>Description: <%=property[:description]%></span>
       </div>
+      <br>
       <%end%>
+    </div>
     </p>
   </body>
 </html>
