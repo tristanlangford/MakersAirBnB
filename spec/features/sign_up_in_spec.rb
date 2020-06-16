@@ -20,4 +20,9 @@ feature 'signup' do
         expect(page).to have_content("Password:")
     end
 
+    scenario 'it allows the user to confirm their password' do 
+        visit('/signup')
+        expect(page).to have_content("Confirm Password:")
+    end
+
 end
