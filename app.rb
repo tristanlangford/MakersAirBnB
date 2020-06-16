@@ -27,9 +27,12 @@ class Makers_bnb < Sinatra::Base
     if signup_response == :email_exists
       flash[:email_exists] = "An account already exists with this email address."
       redirect('/signup')
-    else signup_response == :passwords_do_not_match
+    elsif signup_response == :passwords_do_not_match
       flash[:passwords_do_not_match] = "Passwords don't match."
-        redirect('/signup')
+      redirect('/signup')
+    elsif signup_response == :email_format_incorrect
+      flash[:email_format_incorrect] = "Email address is invalid."
+      redirect('/signup')
     end
 
     Model_Makers_bnb.add_user(params[:email], params[:first_name], params[:last_name], params[:password])

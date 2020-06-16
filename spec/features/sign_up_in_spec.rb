@@ -58,5 +58,13 @@ feature 'signup' do
       click_button('signup')
       expect(page).to have_content("Passwords don't match.")
     end
+
+    scenario 'should show an error message if the email firmat is incorrect' do
+      fill_in('email', with: 'some_email1hotmail.com')
+      fill_in('password', with: 'password')
+      fill_in('confirm_password', with: 'password')
+      click_button('signup')
+      expect(page).to have_content("Email address is invalid.")
+    end
   end
 end
