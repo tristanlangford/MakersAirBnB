@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/model_makers_bnb'
 
 class Makers_bnb < Sinatra::Base
 
@@ -7,7 +8,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/view_properties') do
-    @properties = [ {name: 'home one', price: '35', description: 'cheap and nasty'}, {name: 'home two', price: '200', description: 'not cheap and nasty'}]
+    @properties = Model_Makers_bnb.get_properties
     erb :properties
   end
 

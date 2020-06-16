@@ -10,11 +10,11 @@
     <div id = 'container'>
       <%@properties.each do |property| %>
       <div id = 'property'>
-        <span>Title: <%=property[:name]%></span>
+        <span>Title: <%=property.name%></span>
         <br>
-        <span><%=property[:price]%>/night</span>
+        <span><%=property.price%>/night</span>
         <br>
-        <span>Description: <%=property[:description]%></span>
+        <span>Description: <%=property.description%></span>
       </div>
       <br>
       <%end%>
