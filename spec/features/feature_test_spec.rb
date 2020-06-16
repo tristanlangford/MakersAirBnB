@@ -12,16 +12,19 @@ feature Makers_bnb do
     end
 
     scenario 'has a title for each property' do
+      Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
       visit('/view_properties')
       expect(page).to have_content('Title')
     end
 
     scenario 'has a price for each property' do
+      Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
       visit('/view_properties')
       expect(page).to have_content('/night')
     end
 
     scenario 'has a description for each property' do
+      Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
       visit('/view_properties')
       expect(page).to have_content('Description')
     end
