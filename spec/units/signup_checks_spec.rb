@@ -27,4 +27,14 @@ describe SignupChecks do
       expect(SignupChecks.passwords_match?('passwor', 'password')).to be false
     end
   end
+
+  describe '#email_format_correct?' do
+    it 'should return true if email is formatted correctly' do 
+      expect(SignupChecks.email_format_correct?('some_email@hotmail.com')).to be true
+    end
+
+    it 'should return false if email is formatted incorrectly' do 
+      expect(SignupChecks.email_format_correct?('some_emailhotmail.com')).to be false
+    end
+  end
 end
