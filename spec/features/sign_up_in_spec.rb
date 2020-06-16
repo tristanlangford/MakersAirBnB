@@ -20,6 +20,7 @@ feature 'signup' do
 
     scenario 'it allows the user to enter their password' do
         visit('/signup')
+        fill_in('password', with: 'password')
         expect(page).to have_content("Password:")
     end
 
