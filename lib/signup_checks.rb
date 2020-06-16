@@ -20,4 +20,8 @@ class SignupChecks
   def self.email_format_correct?(email)
     !!(email =~ VALID_EMAIL_REGEX)
   end
+
+  def self.signup_checks(email, password, confirm_password)
+    return :email_exists if check_email_exists(email)
+  end
 end

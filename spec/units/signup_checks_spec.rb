@@ -37,4 +37,14 @@ describe SignupChecks do
       expect(SignupChecks.email_format_correct?('some_emailhotmail.com')).to be false
     end
   end
+
+  describe '#signup_checks' do
+  
+    it 'returns email exists when #check_email_exists is true' do 
+      Database_connection.query(("INSERT INTO users (email, first_name, last_name,
+        password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+      expect(SignupChecks.signup_checks('some_email@hotmail.com', 'password', 'password')).to eq(:email_exists)
+
+    end
+  end
 end
