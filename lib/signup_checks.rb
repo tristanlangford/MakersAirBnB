@@ -18,11 +18,12 @@ class SignupChecks
   end
 
   def self.email_format_incorrect?(email)
-    !!(email =~ VALID_EMAIL_REGEX)
+    !(email =~ VALID_EMAIL_REGEX)
   end
 
   def self.signup_checks(email, password, confirm_password)
     return :email_exists if check_email_exists(email)
     return :passwords_do_not_match if passwords_do_not_match?(password, confirm_password)
+    return :email_format_incorrect if email_format_incorrect?(email)
   end
 end
