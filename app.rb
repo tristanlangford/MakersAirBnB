@@ -1,3 +1,4 @@
+require_relative 'database_connection_setup'
 require 'sinatra/base'
 require_relative './lib/model_makers_bnb'
 require_relative './lib/signup_checks'

@@ -1,4 +1,4 @@
-require 'data_base_connection'
+require_relative 'data_base_connection'
 require 'uri'
 
 class SignupChecks
