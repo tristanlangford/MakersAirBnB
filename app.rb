@@ -16,6 +16,10 @@ class Makers_bnb < Sinatra::Base
     erb :signup
   end
 
+  post ('/signup') do 
+    Model_Maker_bnb.add_user(params[:email], params[:first_name], params[:last_name], params[:password])
+  end
+
 
   run! if app_file == $0
 end
