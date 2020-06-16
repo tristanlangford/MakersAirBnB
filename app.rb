@@ -22,6 +22,10 @@ class Makers_bnb < Sinatra::Base
     erb :sign_in
   end
 
+  post ('/sign_in') do 
+
+  end
+
   get ('/signup') do
     erb :signup
   end
