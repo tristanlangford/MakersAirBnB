@@ -8,6 +8,7 @@ feature 'signup' do
 
     scenario 'it allows the user to enter their first name' do
         visit('/signup')
+        fill_in('first_name', with: 'Tristan')
         expect(page).to have_content("First name:")
     end
 
