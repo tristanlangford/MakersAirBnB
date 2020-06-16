@@ -1,5 +1,7 @@
 body {
-  background-color: lightblue;
+  background-color: rgb(199, 218, 221);
+  text-align: center
+
 }
 
 h1 {
@@ -21,3 +23,19 @@ h1 {
   border-width: 2px;
   padding: 5px
 }
+
+header {
+  background-color: rgb(142, 177, 182);
+    padding: 4rem 8rem;
+    display: inline-block;
+    border: 3px solid #333333;
+    font-size: 1rem;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    text-transform: uppercase;
+    letter-spacing: 0.3ch;
+    background: #ffffff;
+    position: relative;
+
+}
+  
+
