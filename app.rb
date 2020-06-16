@@ -1,7 +1,13 @@
 require 'sinatra/base'
 require_relative './lib/model_makers_bnb'
+require_relative './lib/signup_checks'
+require 'sinatra'
+require 'sinatra/flash'
 
 class Makers_bnb < Sinatra::Base
+
+  enable :sessions
+  register Sinatra::Flash
 
   get ('/') do
     erb :index
@@ -12,12 +18,18 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
-  get ('/signup') do 
+  get ('/signup') do
     erb :signup
   end
 
-  post ('/signup') do 
-    Model_Maker_bnb.add_user(params[:email], params[:first_name], params[:last_name], params[:password])
+  post ('/signup') do
+    signup_response = SignupChecks.signup_checks(params[:email], params[:password], params[:confirm_password])
+    if signup_response == :email_exists
+      flash[:email_exists] = "An account already exists with this email address."
+      redirect('/signup')
+    end
+
+    Model_Makers_bnb.add_user(params[:email], params[:first_name], params[:last_name], params[:password])
   end
 
 

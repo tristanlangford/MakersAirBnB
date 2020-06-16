@@ -18,6 +18,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pg (1.2.3)
     public_suffix (4.0.5)
     rack (2.2.2)
     rack-protection (2.0.8.1)
@@ -44,7 +45,10 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     tilt (2.0.10)
+    uri (0.10.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -53,8 +57,11 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rspec
   sinatra
+  sinatra-flash
+  uri
 
 BUNDLED WITH
    2.1.2
