@@ -29,4 +29,9 @@ feature 'signup' do
         fill_in('confirm_password', with: 'password')
         expect(page).to have_content("Confirm Password:")
     end
+
+    scenario 'it allows the user to submit their information' do
+        visit('/signup')
+        expect(page).to have_selector(:link_or_button, 'signup')
+    end
 end
