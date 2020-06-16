@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'properties'
+require_relative 'data_base_connection'
 
 class Model_Makers_bnb 
 

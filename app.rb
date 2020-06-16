@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/model_makers_bnb'
+require_relative 'database_connection_setup'
 
 class Makers_bnb < Sinatra::Base
 
