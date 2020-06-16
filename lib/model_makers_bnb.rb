@@ -10,4 +10,8 @@ class Model_Makers_bnb
         properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"])}
     end
 
+    def self.add_property(name, price, description)
+        properties = Database_connection.query("INSERT INTO properties (name, price, description) VALUES ('#{name}', '#{price}', '#{description}')")
+    end
+
 end

@@ -17,7 +17,9 @@ class Makers_bnb < Sinatra::Base
 
   end
 
-
+  post ('/list_space/post') do
+    
+  end
 
 
   run! if app_file == $0
