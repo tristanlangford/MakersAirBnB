@@ -29,5 +29,4 @@ feature 'signup' do
         fill_in('confirm_password', with: 'password')
         expect(page).to have_content("Confirm Password:")
     end
-
 end
