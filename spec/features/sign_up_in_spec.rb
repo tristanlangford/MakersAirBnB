@@ -26,6 +26,7 @@ feature 'signup' do
 
     scenario 'it allows the user to confirm their password' do
         visit('/signup')
+        fill_in('confirm_password', with: 'password')
         expect(page).to have_content("Confirm Password:")
     end
 
