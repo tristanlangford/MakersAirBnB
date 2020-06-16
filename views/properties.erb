@@ -14,9 +14,12 @@
       <div id = 'property'>
         <span>Title: <%=property.name%></span>
         <br>
-        <span><%=property.price%>/night</span>
+        <span><%=property.price%> /night</span>
         <br>
         <span>Description: <%=property.description%></span>
+        <form action='/request_stay' method='GET'>
+          <input type=submit value='Request a stay'>
+        </form>
       </div>
       <br>
       <%end%>
