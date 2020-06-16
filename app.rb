@@ -23,6 +23,10 @@ class Makers_bnb < Sinatra::Base
     redirect ('/view_properties')
   end
 
+  get ('/request_stay') do
+    erb :request_stay
+  end
+
 
   run! if app_file == $0
 end
