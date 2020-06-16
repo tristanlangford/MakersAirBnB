@@ -26,4 +26,18 @@ class SignupChecks
     return :passwords_do_not_match if passwords_do_not_match?(password, confirm_password)
     return :email_format_incorrect if email_format_incorrect?(email)
   end
+
+  def sign_in_checks(email, password)
+    return :email_does_not_exist if !check_email_exists(email)
+    return :passwords_do_not_match if !passwords_do_not_match(password, get_password_from_db(email))
+  end
+
+  private
+
+  def get_password_from_db(email)
+    password = Database_connection.query("SELECT password FROM users WHERE email = '#{email}'")
+    password.each do |row|
+      return row['password']
+    end
+  end
 end
