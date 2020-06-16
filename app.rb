@@ -12,6 +12,10 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
+  get ('/signup') do 
+    erb :signup
+  end
+
 
   run! if app_file == $0
 end
