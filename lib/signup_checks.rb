@@ -9,4 +9,8 @@ class SignupChecks
     end
     false
   end
+
+  def self.passwords_match?(password, confirm_password)
+    password == confirm_password
+  end
 end

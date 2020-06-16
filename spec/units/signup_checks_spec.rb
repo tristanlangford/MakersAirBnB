@@ -17,4 +17,14 @@ describe SignupChecks do
         expect(SignupChecks.check_email_exists(email)).to eq(false)
     end
   end
+
+  describe '#passwords_match?' do
+    it 'returns true if password equals confirm password' do 
+      expect(SignupChecks.passwords_match?('password', 'password')).to be true
+    end
+
+    it 'returns false if password does not equal confirm password' do 
+      expect(SignupChecks.passwords_match?('passwor', 'password')).to be false
+    end
+  end
 end
