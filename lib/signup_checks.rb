@@ -13,15 +13,16 @@ class SignupChecks
     false
   end
 
-  def self.passwords_match?(password, confirm_password)
-    password == confirm_password
+  def self.passwords_do_not_match?(password, confirm_password)
+    password != confirm_password
   end
 
-  def self.email_format_correct?(email)
+  def self.email_format_incorrect?(email)
     !!(email =~ VALID_EMAIL_REGEX)
   end
 
   def self.signup_checks(email, password, confirm_password)
     return :email_exists if check_email_exists(email)
+    return :passwords_do_not_match if passwords_do_not_match?(password, confirm_password)
   end
 end
