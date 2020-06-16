@@ -29,4 +29,18 @@ feature Makers_bnb do
       expect(page).to have_content('Description')
     end
   end
+
+  feature('allows a property owner to list a new space') do
+    scenario 'It has a seperate page for listing a new space' do 
+      visit('/list_space')
+      expect(page).to have_content('List a property')
+    end
+
+    scenario 'It allows a property owner to input info on new space' do
+      visit('/list_space')
+      expect(page).to have_field('name')
+      expect(page).to have_field('price')
+      expect(page).to have_field('description')
+    end
+  end
 end
