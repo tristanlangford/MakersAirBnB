@@ -47,9 +47,8 @@ feature Makers_bnb do
       visit('/list_space')
       fill_in 'name', with: 'party house'
       fill_in 'price', with: '80'
-      fill_in 'description' with: 'This is a description'
+      fill_in 'description', with: 'This is a description'
       click_button('List Property')
-      visit('/view_properties')
       expect(page).to have_content('party house')
       expect(page).to have_content('80')
       expect(page).to have_content('This is a description')
