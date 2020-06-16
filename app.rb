@@ -18,6 +18,10 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
+  get ('/sign_in') do 
+    erb :sign_in
+  end
+
   get ('/signup') do
     erb :signup
   end
