@@ -15,4 +15,9 @@ feature 'signup' do
         expect(page).to have_content("Last name:")
     end
 
+    scenario 'it allows the user to enter their password' do 
+        visit('/signup')
+        expect(page).to have_content("Password:")
+    end
+
 end
