@@ -2,6 +2,7 @@
   <head>
     <meta charset='utf-8'>
     <link rel='stylesheet' href='./style.css'>
+    <script src="jquery-3.5.1.min.js"></script>
     <title>Makers BnB</title>
   </head>
   <body>
@@ -16,7 +17,8 @@
         <br>
         <span><%=property.price%> /night</span>
         <br>
-        <span>Description: <%=property.description%></span>
+        <span id='desc' onclick='myFunction()'>Description: </span>
+        <span id='hidden' style='display:none'><%=property.description%></span>
         <form action='/request_stay' method='GET'>
           <input type=submit value='Request a stay'>
         </form>
@@ -25,5 +27,15 @@
       <%end%>
     </div>
     </p>
+    <script>
+    function myFunction() {
+    var x = document.getElementById('hidden');
+      if (x.style.display === 'none') {
+    x.style.display = 'block';
+      } else {
+    x.style.display = 'none';
+    }
+  }
+    </script>
   </body>
 </html>
