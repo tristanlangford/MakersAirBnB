@@ -28,6 +28,7 @@ feature Makers_bnb do
       visit('/view_properties')
       expect(page).to have_content('Description')
     end
+    
   end
 
   feature('allows a property owner to list a new space') do

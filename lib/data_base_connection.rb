@@ -1,3 +1,5 @@
+require 'pg'
+
 class Database_connection
 
     def self.set_database(database)

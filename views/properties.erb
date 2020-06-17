@@ -8,6 +8,9 @@
   <header>
     <h1>Available Properties</h1>
   </header>
+    <% if !!session[:user] %>
+    <%=session[:user].first_name%>
+    <% end %>
     <p>
     <div id = 'container'>
       <%@properties.each do |property| %>
