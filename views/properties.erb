@@ -5,16 +5,22 @@
     <title>Makers BnB</title>
   </head>
   <body>
+  <header>
     <h1>Available Properties</h1>
+  </header>
     <p>
     <div id = 'container'>
       <%@properties.each do |property| %>
       <div id = 'property'>
         <span>Title: <%=property.name%></span>
         <br>
-        <span><%=property.price%>/night</span>
+        <span><%=property.price%> /night</span>
         <br>
-        <span>Description: <%=property.description%></span>
+        <span id='desc'>Description </span>
+        <span id='hidden'><%=property.description%></span>
+        <form action='/request_stay' method='GET'>
+          <input type=submit value='Request a stay'>
+        </form>
       </div>
       <br>
       <%end%>

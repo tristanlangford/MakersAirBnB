@@ -31,7 +31,7 @@ feature Makers_bnb do
   end
 
   feature('allows a property owner to list a new space') do
-    scenario 'It has a seperate page for listing a new space' do 
+    scenario 'It has a separate page for listing a new space' do 
       visit('/list_space')
       expect(page).to have_content('List a property')
     end
@@ -41,6 +41,30 @@ feature Makers_bnb do
       expect(page).to have_field('name')
       expect(page).to have_field('price')
       expect(page).to have_field('description')
+    end
+
+    scenario 'Listed properties show up on properties.erb' do
+      visit('/list_space')
+      fill_in 'name', with: 'party house'
+      fill_in 'price', with: '80'
+      fill_in 'description', with: 'This is a description'
+      click_button('List Property')
+      expect(page).to have_content('party house')
+      expect(page).to have_content('80')
+      expect(page).to have_content('This is a description')
+    end
+  end
+
+  feature('Request a stay') do
+    scenario 'each property renders with a button to request a stay' do
+    visit('/list_space') 
+      fill_in 'name', with: 'party house'
+      fill_in 'price', with: '80'
+      fill_in 'description', with: 'This is a description'
+      click_button('List Property')
+      click_button('Request a stay')
+      expect(page).to have_field('user_name')
+      expect(page).to have_field('comments')
     end
   end
 end

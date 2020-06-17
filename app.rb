@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/model_makers_bnb'
+require_relative 'database_connection_setup'
 
 class Makers_bnb < Sinatra::Base
 
@@ -17,7 +18,14 @@ class Makers_bnb < Sinatra::Base
 
   end
 
+  post ('/list_space/post') do
+    Model_Makers_bnb.add_property(params[:name], params[:price], params[:description])
+    redirect ('/view_properties')
+  end
 
+  get ('/request_stay') do
+    erb :request_stay
+  end
 
 
   run! if app_file == $0
