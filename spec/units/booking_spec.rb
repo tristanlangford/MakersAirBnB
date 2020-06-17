@@ -2,7 +2,7 @@ require 'booking'
 
 describe Booking do 
 
-    subject { Booking.new('01/01/20', '10/01/20', '1', 'nice place!', '2', 'n') }
+    subject { Booking.new('01/01/20', '10/01/20', '1', 'nice place!', '2', 'n', '1') }
 
     it 'should have a start_date' do 
         expect(subject.start_date).to eq('01/01/20')
@@ -38,13 +38,14 @@ describe Booking do
             Database_connection.query("INSERT INTO bookings(booking_id, start_date, end_date, comments, booker_id, property_id, confirmation)
             VALUES ('1', '01/01/20', '10/01/20', 'nice place!', '1', '1', 'n')")
             
-            property = Booking.List_bookings
-            expect(property.first.start_date).to eq('01/01/20')
-            expect(property.first.end_date).to eq('10/01/20')
+            property = Booking.list_bookings
+            expect(property.first.start_date).to eq('2020-01-01')
+            expect(property.first.end_date).to eq('2020-01-10')
             expect(property.first.comment).to eq('nice place!')
             expect(property.first.prop_id).to eq('1')
             expect(property.first.booker_id).to eq('1')
             expect(property.first.confirmation).to eq('n')
+            expect(property.first.booking_id).to eq('1')
         end
     end
 
