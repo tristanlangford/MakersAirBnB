@@ -66,5 +66,15 @@ feature 'signup' do
       click_button('signup')
       expect(page).to have_content("Email address is invalid.")
     end
+
+    scenario 'Should redirect to properties once signed up' do
+      fill_in('first_name', with: 'Tristan')
+      fill_in('last_name', with: 'Langford')
+      fill_in('email', with: 'some_email@hotmail.com')
+      fill_in('password', with: 'password')
+      fill_in('confirm_password', with: 'password')
+      click_button('signup')
+      expect(page).to have_content("Tristan")
+    end
   end
 end

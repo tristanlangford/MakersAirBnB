@@ -55,6 +55,8 @@ class Makers_bnb < Sinatra::Base
     end
 
     Model_Makers_bnb.add_user(params[:email], params[:first_name], params[:last_name], params[:password])
+    session[:user] = Model_Makers_bnb.get_users_for_signin(params[:email])
+    redirect('/view_properties')
   end
 
 
