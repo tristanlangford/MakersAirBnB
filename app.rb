@@ -15,7 +15,6 @@ class Makers_bnb < Sinatra::Base
 
   get ('/list_space') do
     erb :list_space
-
   end
 
   post ('/list_space/post') do
@@ -23,15 +22,13 @@ class Makers_bnb < Sinatra::Base
     redirect ('/view_properties')
   end
 
-  get ('/request_stay') do
+  get ('/request_stay/:id') do
     erb :request_stay
   end
 
   post ('/request_stay') do
-    @start_date = params[:start_date]
     redirect ('/view_properties')
   end
-
 
   run! if app_file == $0
 end
