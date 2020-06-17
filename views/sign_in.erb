@@ -11,6 +11,7 @@
   <%=flash[:email_does_not_exist]%>
   <label>Password:</label>
   <input type='password' name='password'>
+  <%=flash[:passwords_do_not_match]%>
   <input type='submit' name='sign_in' value='Sign in'>
   </form>
   <form action="/signup">

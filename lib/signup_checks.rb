@@ -29,7 +29,7 @@ class SignupChecks
 
   def self.sign_in_checks(email, password)
     return :email_does_not_exist if !check_email_exists(email)
-    return :passwords_do_not_match if !passwords_do_not_match(password, get_password_from_db(email))
+    return :passwords_do_not_match if passwords_do_not_match?(password, get_password_from_db(email))
   end
 
   private
