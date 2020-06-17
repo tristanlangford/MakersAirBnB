@@ -2,7 +2,7 @@ require 'booking'
 
 describe Booking do 
 
-    subject { Booking.new('01/01/20', '10/01/20', '1', 'nice place!') }
+    subject { Booking.new('01/01/20', '10/01/20', '1', 'nice place!', '2', 'n') }
 
     it 'should have a start_date' do 
         expect(subject.start_date).to eq('01/01/20')
@@ -18,6 +18,14 @@ describe Booking do
 
     it 'should have a comment' do 
         expect(subject.comment).to eq('nice place!')
+    end
+
+    it 'should have a booker_id' do 
+        expect(subject.booker_id).to eq('2')
+    end
+
+    it 'should have a confirmation' do 
+        expect(subject.confirmation).to eq('n')
     end
 
 end
