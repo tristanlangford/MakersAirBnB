@@ -28,5 +28,6 @@ feature Makers_bnb do
       visit('/view_properties')
       expect(page).to have_content('Description')
     end
+    
   end
 end
