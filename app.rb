@@ -27,6 +27,11 @@ class Makers_bnb < Sinatra::Base
     erb :request_stay
   end
 
+  post ('/request_stay') do
+    @start_date = params[:start_date]
+    redirect ('/view_properties')
+  end
+
 
   run! if app_file == $0
 end
