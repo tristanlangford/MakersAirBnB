@@ -15,11 +15,11 @@ CREATE TABLE users (
 
 CREATE TABLE bookings (
     booking_id SERIAL PRIMARY KEY,
-    start_date DATE,
-    end_date DATE,
+    start_date VARCHAR(15),
+    end_date VARCHAR(15),
     comments VARCHAR(100),
-    booker_id INTEGER, 
-    property_id INTEGER, 
+    booker_id INTEGER,
+    property_id INTEGER,
     confirmation CHAR DEFAULT 'n',
     FOREIGN KEY (booker_id) REFERENCES users(user_id),
     FOREIGN KEY (property_id) REFERENCES properties(prop_id)
