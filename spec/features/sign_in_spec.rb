@@ -26,9 +26,8 @@ feature 'sign_in' do
             expect(page).to have_content("Email incorrect.")
         end
 
-        scenario 'email not in database' do 
-            Database_connection.query(("INSERT INTO users (email, first_name, last_name,
-                password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+        scenario 'checks if password is incorrect' do 
+            Model_Makers_bnb.add_user('some_email@hotmail.com', 'Tristan', 'Langford', 'password')
             visit('/sign_in')
             fill_in('email', with: 'some_email@hotmail.com')
             fill_in('password', with: 'password1')
@@ -36,9 +35,8 @@ feature 'sign_in' do
             expect(page).to have_content("Password incorrect.")
         end
 
-        scenario 'email not in database' do 
-            Database_connection.query(("INSERT INTO users (email, first_name, last_name,
-                password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+        scenario 'redirect to properties on sign in' do 
+            Model_Makers_bnb.add_user('some_email@hotmail.com', 'Tristan', 'Langford', 'password')
             visit('/sign_in')
             fill_in('email', with: 'some_email@hotmail.com')
             fill_in('password', with: 'password')
@@ -46,9 +44,8 @@ feature 'sign_in' do
             expect(page).to have_content("Available Properties")
         end
 
-        scenario 'email not in database' do 
-            Database_connection.query(("INSERT INTO users (email, first_name, last_name,
-                password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+        scenario 'page should have users name' do 
+            Model_Makers_bnb.add_user('some_email@hotmail.com', 'Tristan', 'Langford', 'password')
             visit('/sign_in')
             fill_in('email', with: 'some_email@hotmail.com')
             fill_in('password', with: 'password')

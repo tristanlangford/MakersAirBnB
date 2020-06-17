@@ -1,6 +1,7 @@
 require 'bcrypt'
 require 'pg'
 require_relative 'properties'
+require_relative 'user'
 
 class Model_Makers_bnb
 
@@ -22,8 +23,8 @@ class Model_Makers_bnb
   end
 
   def self.get_users_for_signin(email)
-    user = Database_connection.query("SELECT * FROM users WHERE email = '#{email}'")
-    user_array = user.map { |user| User.new( user['user_id'], user['first_name'], user["last_name"], user["email"]) }
+    sign_in_user = Database_connection.query("SELECT * FROM users WHERE email = '#{email}'")
+    user_array = sign_in_user.map { |user| User.new( user['user_id'], user['first_name'], user["last_name"], user["email"]) }
     user_array[0]
   end
 
