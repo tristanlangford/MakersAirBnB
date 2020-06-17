@@ -64,7 +64,6 @@ feature Makers_bnb do
       fill_in 'description', with: 'This is a description'
       click_button('List Property')
       click_button('Request a stay')
-      expect(page).to have_field('user_name')
       expect(page).to have_field('comments')
     end
   end

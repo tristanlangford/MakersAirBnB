@@ -69,10 +69,13 @@ class Makers_bnb < Sinatra::Base
     redirect ('/view_properties')
   end
 
-  get ('/request_stay') do
+  get ('/request_stay/:id') do
     erb :request_stay
   end
 
+  post ('/request_stay') do
+    redirect ('/view_properties')
+  end
 
   run! if app_file == $0
 end

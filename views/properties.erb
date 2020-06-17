@@ -21,7 +21,7 @@
         <br>
         <span id='desc'>Description </span>
         <span id='hidden'><%=property.description%></span>
-        <form action='/request_stay' method='GET'>
+        <form action='/request_stay/<%=property.id%>' method='GET'>
           <input type=submit value='Request a stay'>
         </form>
       </div>

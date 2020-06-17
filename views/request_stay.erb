@@ -8,15 +8,19 @@
   <header>
     <h1>Request Stay </h1>
   </header><br><br>
-    <form method= Get action='/'>
-    <input id='user_name' type=text name='user_name' placeholder='your_name'>
-    <input type=date name='date'><br>
+    <form method= Post action='/request_stay'>
+    <%# <input id='user_name' type=text name='user_name' placeholder='your_name'><br> %>
+    <label>Start Date:</label>
+    <input type=date name='start_date'>
+     <label>End Date:</label>
+    <input type=date name='end_date'><br><br>
+    <%# <input type="text" id="comments" name="comments"/><br><br> %>
     <textarea cols=60 rows=10 name='comments' placeholder='comments'></textarea><br>
-    <button onclick="popUp()">Book</button>
+    <input value='Request a stay' type=submit onclick='popUp()'>
     </form>
     <script>
     function popUp() {
-    alert("impressive eh\n?");
+    alert("Thanks for your request\n");
     }
     </script>
   </body>
