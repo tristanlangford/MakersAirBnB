@@ -19,6 +19,7 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
+
   get ('/sign_in') do 
     erb :sign_in
   end
@@ -57,6 +58,19 @@ class Makers_bnb < Sinatra::Base
     Model_Makers_bnb.add_user(params[:email], params[:first_name], params[:last_name], params[:password])
     session[:user] = Model_Makers_bnb.get_users_for_signin(params[:email])
     redirect('/view_properties')
+  end
+
+  get ('/list_space') do
+    erb :list_space
+  end
+
+  post ('/list_space/post') do
+    Model_Makers_bnb.add_property(params[:name], params[:price], params[:description])
+    redirect ('/view_properties')
+  end
+
+  get ('/request_stay') do
+    erb :request_stay
   end
 
 

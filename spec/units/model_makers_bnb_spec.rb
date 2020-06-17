@@ -44,4 +44,15 @@ describe Model_Makers_bnb do
             expect(Model_Makers_bnb.get_users_for_signin(email).user_id).to eq "1"
         end
     end
+
+    describe('.add_property') do
+        it('can add a new property to the database') do
+            Model_Makers_bnb.add_property('Test Listing', 50, 'bottom house')
+            expect(Model_Makers_bnb.get_properties.last.name).to eq('Test Listing')
+            expect(Model_Makers_bnb.get_properties.last.price).to eq('50')
+            expect(Model_Makers_bnb.get_properties.last.description).to eq('bottom house')
+        end
+    end
+
 end
+

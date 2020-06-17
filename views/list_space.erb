@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='./style.css'>
+    <title>Makers BnB</title>
+  </head>
+  <body>
+  <header>
+    <h1>List a property </h1>
+  </header><br><br>
+  <div id='input_house'>
+    <form id= list_space method= Post action='/list_space/post'>
+    <input id='house_name' type=text name='name' placeholder='name'>
+    <input type=text name='price' placeholder='price'><br>
+    <textarea cols=60 rows=10 name='description' placeholder='description'></textarea><br>
+    <input value= 'List Property' type= submit onclick='confirmListing()'>
+    </form>
+    <div>
+    <script>
+    function confirmListing() {
+    alert("Thanks for listing your home with us!");
+    }
+    </script>
+  </body>
+</html>

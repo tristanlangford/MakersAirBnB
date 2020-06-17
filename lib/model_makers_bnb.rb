@@ -2,6 +2,7 @@ require 'bcrypt'
 require 'pg'
 require_relative 'properties'
 require_relative 'user'
+require_relative 'data_base_connection'
 
 class Model_Makers_bnb
 
@@ -27,11 +28,15 @@ class Model_Makers_bnb
     user_array = sign_in_user.map { |user| User.new( user['user_id'], user['first_name'], user["last_name"], user["email"]) }
     user_array[0]
   end
+  
+  def self.add_property(name, price, description)
+    properties = Database_connection.query("INSERT INTO properties (name, price, description) VALUES ('#{name}', '#{price}', '#{description}')")
+  end
 
   private 
 
   def self.encrypt_password(password)
     BCrypt::Password.create(password)
   end
-
 end
+
