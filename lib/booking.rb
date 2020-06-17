@@ -1,4 +1,5 @@
 require 'date'
+
 class Booking
 
   DATE_FORMAT = '%Y-%m-%d'
@@ -19,6 +20,11 @@ class Booking
         bookings = Database_connection.query("SELECT * FROM bookings")
         bookings.map { |booking| Booking.new( booking['start_date'], booking['end_date'], booking['property_id'], booking['comments'],
         booking['booker_id'], booking['confirmation'], booking['booking_id'])}
+    end
+
+    def self.add_booking(start_date, end_date, comments, booker_id, property_id)
+      Database_connection.query("INSERT INTO bookings(start_date, end_date, comments, booker_id, property_id)
+      VALUES ('#{start_date}', '#{end_date}', '#{comments}', '#{booker_id}', '#{property_id}')")
     end
 
 end

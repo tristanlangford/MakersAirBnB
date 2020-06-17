@@ -49,4 +49,22 @@ describe Booking do
         end
     end
 
+    describe 'add_booking' do
+      it 'should a booking to the database' do
+        Database_connection.query(("INSERT INTO users (user_id, email, first_name, last_name,
+            password) VALUES (1, 'some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+
+        Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
+
+        Booking.add_booking('2020-01-01', '2020-01-10', 'nice place!', '1', '1')
+
+        property = Booking.list_bookings
+        expect(property.first.start_date).to eq('2020-01-01')
+        expect(property.first.end_date).to eq('2020-01-10')
+        expect(property.first.comment).to eq('nice place!')
+        expect(property.first.prop_id).to eq('1')
+        expect(property.first.booker_id).to eq('1')
+        expect(property.first.confirmation).to eq('n')
+      end
+    end
 end
