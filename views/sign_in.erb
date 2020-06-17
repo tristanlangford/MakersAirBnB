@@ -8,6 +8,7 @@
   <form method='post' action='/sign_in'>
   <label>Email:</label>
   <input type='text' name='email'>
+  <%=flash[:email_does_not_exist]%>
   <label>Password:</label>
   <input type='password' name='password'>
   <input type='submit' name='sign_in' value='Sign in'>

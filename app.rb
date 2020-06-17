@@ -24,7 +24,11 @@ class Makers_bnb < Sinatra::Base
   end
 
   post ('/sign_in') do 
-
+    sign_in_response = SignupChecks.sign_in_checks(params[:email], params[:password])
+    if sign_in_response == :email_does_not_exist
+      flash[:email_does_not_exist] = "Email incorrect"
+      redirect('/sign_in')
+    end
   end
 
   get ('/signup') do

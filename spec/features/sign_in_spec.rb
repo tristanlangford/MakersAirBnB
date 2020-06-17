@@ -16,4 +16,16 @@ feature 'sign_in' do
     expect(page).to have_content("First name:")
     end
 
+    feature 'sign_in_checks' do 
+
+        scenario 'email not in database' do 
+            visit('/sign_in')
+            fill_in('email', with: 'some_email@hotmail.com')
+            fill_in('password', with: 'password')
+            click_on('sign_in')
+            expect(page).to have_content("Email incorrect")
+        end
+
+    end
+
 end
