@@ -4,7 +4,11 @@
     <link rel='stylesheet' href='./style.css'>
     <title>Makers BnB|Sign Up</title>
   </head>
+     <header>
+    <h1>Sign Up</h1>
+  </header><br><br>
     <form method='post' action='/signup'>
+    <li>
       <label>Email:</label>
         <input type='text' name='email'>
         <%=flash[:email_exists]%>
@@ -13,11 +17,14 @@
         <input type='text' name='first_name' required>
     <label>Last name:</label>
         <input type='text' name='last_name' required>
+      </li><br>
+      <li>
     <label>Password:</label>
         <input type='password' name='password'>
     <label>Confirm Password:</label>
         <input type='password' name='confirm_password'>
         <%=flash[:passwords_do_not_match]%>
+        </li><br>
         <input type='submit' name='signup' value='signup'>
     </form>
   </html
