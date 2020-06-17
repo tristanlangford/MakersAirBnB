@@ -33,6 +33,7 @@ class Makers_bnb < Sinatra::Base
       flash[:passwords_do_not_match] = "Password incorrect."
       redirect('/sign_in')
     end
+    redirect('/view_properties')
   end
 
   get ('/signup') do
