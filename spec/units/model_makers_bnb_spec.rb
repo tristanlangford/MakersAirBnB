@@ -34,4 +34,14 @@ describe Model_Makers_bnb do
             expect(Model_Makers_bnb.get_users[0].email).to eq 'some_email@hotmail.com'
         end
     end
+
+    describe '#get_user' do
+
+        it 'retrieves an individual user from the database' do
+            email = 'some_email@hotmail.com'
+            Database_connection.query(("INSERT INTO users (user_id, email, first_name, last_name,
+              password) VALUES (1, 'some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+            expect(Model_Makers_bnb.get_users_for_signin(email).user_id).to eq "1"
+        end
+    end
 end

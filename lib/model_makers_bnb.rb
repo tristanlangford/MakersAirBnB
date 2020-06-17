@@ -21,6 +21,12 @@ class Model_Makers_bnb
     Database_connection.query("INSERT INTO users (email, first_name, last_name, password) VALUES ('#{email}', '#{first_name}', '#{last_name}', '#{encrypted_password}')")
   end
 
+  def self.get_users_for_signin(email)
+    user = Database_connection.query("SELECT * FROM users WHERE email = '#{email}'")
+    user_array = user.map { |user| User.new( user['user_id'], user['first_name'], user["last_name"], user["email"]) }
+    user_array[0]
+  end
+
   private 
 
   def self.encrypt_password(password)
