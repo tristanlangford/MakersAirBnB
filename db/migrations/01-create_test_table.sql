@@ -12,3 +12,15 @@ CREATE TABLE users (
     email VARCHAR(40),
     password VARCHAR(150)
 );
+
+CREATE TABLE bookings (
+    booking_id SERIAL PRIMARY KEY,
+    start_date DATE,
+    end_date DATE,
+    comments VARCHAR(100),
+    booker_id INTEGER, 
+    property_id INTEGER, 
+    confirmation CHAR DEFAULT 'n',
+    FOREIGN KEY (booker_id) REFERENCES users(user_id),
+    FOREIGN KEY (property_id) REFERENCES properties(prop_id)
+);
