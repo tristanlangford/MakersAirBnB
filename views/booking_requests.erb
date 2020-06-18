@@ -12,13 +12,13 @@
       <%@bookings.each do |booking| %>
       <div id = 'booking'>
        <br>
-        <span>There is a request for the following property: <%=booking[3]%></span>
+        <span>There is a request for the following property: <%=booking[:name]%></span>
         <br>
-        <span>from: <%=booking[1]%></span>
+        <span>from: <%=booking[:start_date]%></span>
         <br>
-        <span>until: <%=booking[2]%></span>
+        <span>until: <%=booking[:end_date]%></span>
         <br>
-        <span><%=booking[4]%></span>
+        <span><%=booking[:comments]%></span>
         <br>
         <form>
           <input type=submit value='Confirm'>

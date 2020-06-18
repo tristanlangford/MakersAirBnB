@@ -68,13 +68,13 @@ describe Booking do
 
     it "should return an array of the user's bookings" do
 
-      Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
+      Database_connection.query(("INSERT INTO properties VALUES ('1', 'house 1', 'top house' ,'100' );"))
 
       Booking.add_booking('2020-01-01', '2020-01-10', 'nice place!', '2', '1')
 
-      user_bookings = Booking.list_user_bookings(1)
+      user_bookings = Booking.list_user_bookings('1')
 
-      expect(user_bookings.first.expect.start_date).to eq('2020-01-01')
+      expect(user_bookings.first[:start_date]).to eq('2020-01-01')
     end
   end
 end
