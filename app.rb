@@ -12,16 +12,6 @@ class Makers_bnb < Sinatra::Base
   register Sinatra::Flash
 
   get ('/') do
-    erb :index
-  end
-
-  get ('/view_properties') do
-    @properties = Model_Makers_bnb.get_properties
-    erb :properties
-  end
-
-
-  get ('/sign_in') do
     erb :sign_in
   end
 
@@ -29,11 +19,11 @@ class Makers_bnb < Sinatra::Base
     sign_in_response = SignupChecks.sign_in_checks(params[:email], params[:password])
     if sign_in_response == :email_does_not_exist
       flash[:email_does_not_exist] = "Email incorrect."
-      redirect('/sign_in')
+      redirect('/')
     elsif
       sign_in_response == :passwords_do_not_match
       flash[:passwords_do_not_match] = "Password incorrect."
-      redirect('/sign_in')
+      redirect('/')
     end
     session[:user] = Model_Makers_bnb.get_users_for_signin(params[:email])
     redirect('/view_properties')
@@ -66,7 +56,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   post ('/list_space/post') do
-    Model_Makers_bnb.add_property(params[:name], params[:price], params[:description])
+    Model_Makers_bnb.add_property(params[:name], params[:price], params[:description], session[:user].user_id)
     redirect ('/view_properties')
   end
 
@@ -78,6 +68,31 @@ class Makers_bnb < Sinatra::Base
   post ('/request_stay') do
     Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:property_id])
     redirect ('/view_properties')
+  end
+
+  get ('/properties/user') do
+    @properties = Model_Makers_bnb.get_properties
+    erb :properties_user
+  end
+
+  get ('/view_properties') do
+    @properties = Model_Makers_bnb.get_properties
+    erb :properties
+  end
+
+  post ('/delete/:id') do 
+    Model_Makers_bnb.delete_property(params[:id])
+    redirect ('/properties/user')
+  end
+
+  get ('/edit/:id') do 
+    @property = Model_Makers_bnb.get_one_property(params[:id])
+    erb :edit_property
+  end
+
+  post ('/edit_prop/:id') do 
+    Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
+    redirect ('/properties/user')
   end
 
   run! if app_file == $0

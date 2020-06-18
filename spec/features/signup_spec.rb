@@ -41,8 +41,6 @@ feature 'signup' do
     end
 
     scenario 'should show an error message if email exists' do
-      Database_connection.query(("INSERT INTO users (email, first_name, last_name,
-      password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
 
       fill_in('email', with: 'some_email@hotmail.com')
       fill_in('password', with: 'password')
@@ -70,7 +68,7 @@ feature 'signup' do
     scenario 'Should redirect to properties once signed up' do
       fill_in('first_name', with: 'Tristan')
       fill_in('last_name', with: 'Langford')
-      fill_in('email', with: 'some_email@hotmail.com')
+      fill_in('email', with: 'some_email1@hotmail.com')
       fill_in('password', with: 'password')
       fill_in('confirm_password', with: 'password')
       click_button('signup')

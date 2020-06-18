@@ -1,7 +1,7 @@
 require 'properties.rb'
 
 describe Property do
-  subject = Property.new( name = 'house 1', price = 100, description = 'top house', id = 1)
+  subject = Property.new( name = 'house 1', price = 100, description = 'top house', id = 1, user_id = 1)
 
   it 'the property has a name' do
     expect(subject.name).to eq 'house 1' 

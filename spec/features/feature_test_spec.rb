@@ -1,15 +1,7 @@
-feature Makers_bnb do
-  scenario 'It loads with Makers Bnb on the home page' do
-    visit('/')
-    expect(page).to have_content('Makers BnB')
-  end
+require_relative '../web_helper'
 
-  feature('View Listings') do
-    scenario 'It has a separate page to view currently listed properties' do
-      visit('/')
-      click_button('View Properties')
-      expect(page).to have_content('Available Properties')
-    end
+feature Makers_bnb do
+
 
     scenario 'has a title for each property' do
       Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
@@ -45,6 +37,7 @@ feature Makers_bnb do
     end
 
     scenario 'Listed properties show up on properties.erb' do
+      signin_user
       visit('/list_space')
       fill_in 'name', with: 'party house'
       fill_in 'price', with: '80'
@@ -58,7 +51,8 @@ feature Makers_bnb do
 
   feature('Request a stay') do
     scenario 'each property renders with a button to request a stay' do
-    visit('/list_space') 
+      signin_user
+      visit('/list_space') 
       fill_in 'name', with: 'party house'
       fill_in 'price', with: '80'
       fill_in 'description', with: 'This is a description'
@@ -67,4 +61,4 @@ feature Makers_bnb do
       expect(page).to have_field('comments')
     end
   end
-end
+

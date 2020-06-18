@@ -6,18 +6,15 @@
   </head>
   <body>
   <header>
-    <h1>Available Properties</h1>
+    <h1>Hi <%=session[:user].first_name%> please see your listed propeties</h1>
   </header>
-  <br>
-    <% if !!session[:user] %>
-    <%=session[:user].first_name%>
-    <form action="/properties/user" method='get'>
-      <input type='submit' value='My Properties'>
-    </form>
-    <% end %>
+  <form action = '/list_space' method ='get'>
+  <input type = 'submit' value = 'View Properties'>
+</form>
     <p>
     <div id = 'container'>
       <%@properties.each do |property| %>
+      <%if property.user_id == session[:user].user_id%>
       <div id = 'property'>
         <span>Title: <%=property.name%></span>
         <br>
@@ -25,11 +22,15 @@
         <br>
         <span id='desc'>Description </span>
         <span id='hidden'><%=property.description%></span>
-        <form action='/request_stay/<%=property.id%>' method='GET'>
-          <input type=submit value='Request a stay'>
+        <form action='/delete/<%=property.id%>' method='post'>
+          <input type=submit value='Delete' name='delete'>
+        </form>
+        <form action='/edit/<%=property.id%>' method='get'>
+          <input type=submit value='Edit' name='edit'>
         </form>
       </div>
       <br>
+      <%end%>
       <%end%>
     </div>
     </p>

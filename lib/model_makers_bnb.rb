@@ -10,8 +10,19 @@ class Model_Makers_bnb
 
       properties = Database_connection.query("SELECT * FROM properties")
 
-      properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"])}
+      properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"], row["user_id"])}
   end
+
+  def self.get_one_property(property_id)
+
+    property_id_integer = property_id.to_i
+
+    properties = Database_connection.query("SELECT * FROM properties WHERE prop_id = #{property_id_integer}")
+
+    property = properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"], row["user_id"])}
+
+    property[0]
+end
 
   def self.get_users
       users = Database_connection.query("SELECT * FROM users")
@@ -29,8 +40,17 @@ class Model_Makers_bnb
     user_array[0]
   end
   
-  def self.add_property(name, price, description)
-    properties = Database_connection.query("INSERT INTO properties (name, price, description) VALUES ('#{name}', '#{price}', '#{description}')")
+  def self.add_property(name, price, description, user_id)
+    properties = Database_connection.query("INSERT INTO properties (name, price, description, user_id) VALUES ('#{name}', '#{price}', '#{description}', '#{user_id}')")
+  end
+
+  def self.delete_property(propery_id)
+    Database_connection.query("DELETE FROM properties WHERE prop_id = '#{propery_id}'")
+  end
+
+  def self.edit_property(propery_id, name, price, description)
+    Database_connection.query("UPDATE properties SET name = '#{name}', price = '#{price}', description = '#{description}'
+    WHERE prop_id = '#{propery_id}'")
   end
 
   private 
