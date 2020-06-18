@@ -3,6 +3,8 @@ CREATE TABLE properties (
     name VARCHAR(60),
     description VARCHAR(150),
     price FLOAT
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
 );
 
 CREATE TABLE users (
@@ -11,8 +13,6 @@ CREATE TABLE users (
     last_name VARCHAR(20),
     email VARCHAR(40),
     password VARCHAR(150),
-    user_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
 );
 
 CREATE TABLE bookings (
