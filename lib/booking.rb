@@ -27,4 +27,12 @@ class Booking
       VALUES ('#{start_date}', '#{end_date}', '#{comments}', '#{booker_id}', '#{property_id}')")
     end
 
+    def self.list_user_bookings(user_id)
+      user_bookings = Database_connection.query("SELECT * FROM bookings
+        JOIN properties ON bookings.property_id = properties.prop_id
+        WHERE user_id = '#{user_id}'; ")
+      user_bookings.map
+
+    end
+
 end

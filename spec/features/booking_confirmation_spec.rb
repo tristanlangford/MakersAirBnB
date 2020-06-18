@@ -2,19 +2,19 @@ require_relative '../web_helper'
 require 'pg'
 
 feature 'allow property owner to see booking requests' do
-  scenario 'has a page to view booking requests' do
+  xscenario 'has a page to view booking requests' do
     signin_user
     visit('/view_properties')
     click_button('Booking Requests')
     expect(page).to have_content ('Booking Requests')
   end
 
-  scenario 'allows the user to confirm a booking with confirm button' do
+  xscenario 'allows the user to confirm a booking with confirm button' do
     visit('/booking_requests')
     expect(page).to have_selector(:link_or_button, 'Confirm')
   end
 
-  scenario 'allows the user to see any booking requests they have' do
+  xscenario 'allows the user to see any booking requests they have' do
 
     connection = PG.connect :dbname => 'makers_bnb_test'
 
