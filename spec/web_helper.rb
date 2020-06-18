@@ -10,10 +10,14 @@ def add_house
     fill_in 'name', with: 'test house'
     fill_in 'price', with: '80'
     fill_in 'description', with: 'This is a description'
+    fill_in "start_date", with: "2020-01-01"
+    fill_in "end_date", with: "2020-10-01"
     click_button('List Property')
     visit('/list_space')
     fill_in 'name', with: 'second house'
     fill_in 'price', with: '150'
     fill_in 'description', with: 'Testing for two listings'
+    fill_in "start_date", with: "2020-01-01"
+    fill_in "end_date", with: "2020-10-01"
     click_button('List Property')
 end
