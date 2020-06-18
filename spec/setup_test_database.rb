@@ -7,4 +7,6 @@ def setup_test_database
 
     connection.exec("TRUNCATE users CASCADE;")
 
+    connection.exec("TRUNCATE bookings CASCADE;")
+
 end

@@ -4,6 +4,7 @@ require_relative './lib/model_makers_bnb'
 require_relative './lib/signup_checks'
 require 'sinatra'
 require 'sinatra/flash'
+require_relative './lib/booking'
 
 class Makers_bnb < Sinatra::Base
 
@@ -20,11 +21,11 @@ class Makers_bnb < Sinatra::Base
   end
 
 
-  get ('/sign_in') do 
+  get ('/sign_in') do
     erb :sign_in
   end
 
-  post ('/sign_in') do 
+  post ('/sign_in') do
     sign_in_response = SignupChecks.sign_in_checks(params[:email], params[:password])
     if sign_in_response == :email_does_not_exist
       flash[:email_does_not_exist] = "Email incorrect."
@@ -70,10 +71,12 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/request_stay/:id') do
+    session[:property_id] = params[:id]
     erb :request_stay
   end
 
   post ('/request_stay') do
+    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:property_id])
     redirect ('/view_properties')
   end
 
