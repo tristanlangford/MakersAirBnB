@@ -8,8 +8,20 @@
   <header>
     <h1>Booking Requests</h1>
   </header>
-  <form>
-    <input type=submit value='Confirm'>
-  </form>
+   <div id = 'container'>
+      <%@bookings.each do |booking| %>
+      <div id = 'booking'>
+        <br>
+        <span><%=booking.start_date%></span>
+        <br>
+        <span><%=booking.end_date%></span>
+        <br>
+        <span><%=booking.comments%></span>
+        <br>
+        <form>
+          <input type=submit value='Confirm'>
+        </form>
+      </div>
+      <%end%>
   </body>
   </html>
