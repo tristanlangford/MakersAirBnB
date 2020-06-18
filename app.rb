@@ -76,8 +76,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   post ('/request_stay') do
-    p session
-    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user.user_id], session[:property_id])
+    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:property_id])
     redirect ('/view_properties')
   end
 
