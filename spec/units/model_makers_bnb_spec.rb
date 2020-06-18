@@ -49,5 +49,13 @@ describe Model_Makers_bnb do
         end
     end
 
+    describe('.delete_property') do
+        it('can delete a property from the database') do
+            Model_Makers_bnb.add_property('Test Listing', 50, 'bottom house', 1)
+            Model_Makers_bnb.delete_property(1)
+            expect(Model_Makers_bnb.get_properties.first.name).to_not eq('house 1')
+        end
+    end
+
 end
 

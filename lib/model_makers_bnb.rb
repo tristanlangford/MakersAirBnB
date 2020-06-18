@@ -33,6 +33,10 @@ class Model_Makers_bnb
     properties = Database_connection.query("INSERT INTO properties (name, price, description, user_id) VALUES ('#{name}', '#{price}', '#{description}', '#{user_id}')")
   end
 
+  def self.delete_property(propery_id)
+    Database_connection.query("DELETE FROM properties WHERE prop_id = '#{propery_id}'")
+  end
+
   private 
 
   def self.encrypt_password(password)

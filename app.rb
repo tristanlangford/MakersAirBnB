@@ -14,11 +14,6 @@ class Makers_bnb < Sinatra::Base
     erb :sign_in
   end
 
-  get ('/view_properties') do
-    @properties = Model_Makers_bnb.get_properties
-    erb :properties
-  end
-
   post ('/sign_in') do
     sign_in_response = SignupChecks.sign_in_checks(params[:email], params[:password])
     if sign_in_response == :email_does_not_exist
@@ -76,6 +71,16 @@ class Makers_bnb < Sinatra::Base
   get ('/properties/user') do
     @properties = Model_Makers_bnb.get_properties
     erb :properties_user
+  end
+
+  get ('/view_properties') do
+    @properties = Model_Makers_bnb.get_properties
+    erb :properties
+  end
+
+  post ('/delete/:id') do 
+    Model_Makers_bnb.delete_property(params[:id])
+    redirect ('/properties/user')
   end
 
   run! if app_file == $0

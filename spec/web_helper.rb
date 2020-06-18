@@ -1,5 +1,5 @@
 def signin_user
-    visit('/sign_in')
+    visit('/')
     fill_in('email', with: 'some_email@hotmail.com')
     fill_in('password', with: 'password')
     click_on('sign_in')

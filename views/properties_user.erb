@@ -9,7 +9,7 @@
     <h1>Hi <%=session[:user].first_name%> please see your listed propeties</h1>
   </header>
   <form action = '/list_space' method ='get'>
-  <input type = 'submit' value = 'ListSpace'>
+  <input type = 'submit' value = 'View Properties'>
 </form>
     <p>
     <div id = 'container'>
@@ -22,8 +22,8 @@
         <br>
         <span id='desc'>Description </span>
         <span id='hidden'><%=property.description%></span>
-        <form action='/request_stay/<%=property.id%>' method='GET'>
-          <input type=submit value='Request a stay'>
+        <form action='/delete/<%=property.id%>' method='post'>
+          <input type=submit value='Delete' name='delete'>
         </form>
       </div>
       <br>
