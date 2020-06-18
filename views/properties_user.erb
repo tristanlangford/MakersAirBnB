@@ -8,6 +8,9 @@
   <header>
     <h1>Hi <%=session[:user].first_name%> please see your listed propeties</h1>
   </header>
+  <form action = '/list_space' method ='get'>
+  <input type = 'submit' value = 'ListSpace'>
+</form>
     <p>
     <div id = 'container'>
       <%@properties.each do |property| %>
