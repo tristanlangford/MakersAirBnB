@@ -45,6 +45,8 @@ end
   end
 
   def self.delete_property(propery_id)
+    Database_connection.query("DELETE FROM available_dates WHERE property_id = '#{propery_id}'")
+    Database_connection.query("DELETE FROM bookings WHERE property_id = '#{propery_id}'")
     Database_connection.query("DELETE FROM properties WHERE prop_id = '#{propery_id}'")
   end
 

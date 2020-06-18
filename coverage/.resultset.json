@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/features/crud_properties_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/crud_properties_spec.rb": {
         "lines": [
           1,
           null,
@@ -19,8 +19,8 @@
           1,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           1,
@@ -28,9 +28,9 @@
           1,
           1,
           1,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null,
           1,
@@ -38,18 +38,18 @@
           1,
           1,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/web_helper.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/web_helper.rb": {
         "lines": [
           1,
           7,
@@ -69,10 +69,14 @@
           4,
           4,
           4,
+          4,
+          4,
+          4,
+          4,
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/features/feature_test_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/feature_test_spec.rb": {
         "lines": [
           1,
           null,
@@ -156,7 +160,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/features/sign_in_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/sign_in_spec.rb": {
         "lines": [
           1,
           null,
@@ -218,7 +222,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/features/signup_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/signup_spec.rb": {
         "lines": [
           1,
           null,
@@ -300,7 +304,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/units/available_dates_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/available_dates_spec.rb": {
         "lines": [
           1,
           null,
@@ -309,8 +313,8 @@
           null,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           1,
@@ -321,8 +325,8 @@
           1,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           null,
@@ -334,14 +338,14 @@
           1,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/units/booking_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/booking_spec.rb": {
         "lines": [
           1,
           null,
@@ -411,7 +415,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/units/model_makers_bnb_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/model_makers_bnb_spec.rb": {
         "lines": [
           1,
           1,
@@ -483,7 +487,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/units/properties_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/properties_spec.rb": {
         "lines": [
           1,
           null,
@@ -509,7 +513,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/units/signup_checks_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/signup_checks_spec.rb": {
         "lines": [
           1,
           null,
@@ -572,7 +576,7 @@
           null
         ]
       },
-      "/Users/Student/Desktop/Tristan_Makers/week6/MakersAirBnB/spec/units/user_spec.rb": {
+      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/user_spec.rb": {
         "lines": [
           1,
           null,
