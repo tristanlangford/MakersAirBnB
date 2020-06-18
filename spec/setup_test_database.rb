@@ -3,8 +3,8 @@ def setup_test_database
 
     connection = PG.connect :dbname => 'makers_bnb_test'
 
-    connection.exec("TRUNCATE properties;")
+    connection.exec("TRUNCATE properties CASCADE;")
 
-    connection.exec("TRUNCATE users;")
+    connection.exec("TRUNCATE users CASCADE;")
 
 end
