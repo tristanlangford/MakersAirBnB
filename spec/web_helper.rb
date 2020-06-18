@@ -17,3 +17,10 @@ def add_house
     fill_in 'description', with: 'Testing for two listings'
     click_button('List Property')
 end
+
+# def signin_holiday_maker
+#   visit('/')
+#   fill_in('email', with: 'holiday_maker@hotmail.com')
+#   fill_in('password', with: 'password')
+#   click_on('sign_in')
+# end

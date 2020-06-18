@@ -15,6 +15,9 @@ def setup_test_database
     connection.exec(("INSERT INTO users (email, first_name, last_name,
               password, user_id) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', '#{password}', '1');"))
 
+    connection.exec(("INSERT INTO users (email, first_name, last_name,
+              password, user_id) VALUES ('holiday_maker@hotmail.com', 'Sam', 'Gubbins', '#{password}', '2');"))
+
 
 
 end

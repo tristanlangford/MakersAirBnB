@@ -80,19 +80,23 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
-  post ('/delete/:id') do 
+  post ('/delete/:id') do
     Model_Makers_bnb.delete_property(params[:id])
     redirect ('/properties/user')
   end
 
-  get ('/edit/:id') do 
+  get ('/edit/:id') do
     @property = Model_Makers_bnb.get_one_property(params[:id])
     erb :edit_property
   end
 
-  post ('/edit_prop/:id') do 
+  post ('/edit_prop/:id') do
     Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
     redirect ('/properties/user')
+  end
+
+  get ('/booking_requests') do
+    erb :booking_requests
   end
 
   run! if app_file == $0
