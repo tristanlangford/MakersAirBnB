@@ -78,8 +78,8 @@ class Makers_bnb < Sinatra::Base
     redirect ('/view_properties')
   end
 
-  get ('properties/user') do
-    'test house Testing for two listings'
+  get ('/properties/user') do
+    erb :properties_user
   end
 
   run! if app_file == $0

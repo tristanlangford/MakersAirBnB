@@ -8,10 +8,11 @@
   <header>
     <h1>Available Properties</h1>
   </header>
+  <br>
     <% if !!session[:user] %>
     <%=session[:user].first_name%>
-    <form action="/properties/user" method='GET'>
-      <input type='button' value='My Properties'>
+    <form action="/properties/user" method='get'>
+      <input type='submit' value='My Properties'>
     </form>
     <% end %>
     <p>
