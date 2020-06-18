@@ -26,7 +26,6 @@ class Available_dates
   private 
 
   def format_date(date)
-    p date
     Date.parse(date).strftime("%d/%m/%Y")
   end
 
