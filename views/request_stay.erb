@@ -8,6 +8,7 @@
   <header>
     <h1>Request Stay </h1>
   </header><br><br>
+    Available from: <%= @available_dates.start_date %> to <%= @available_dates.end_date %>
     <form method=post action='/request_stay'>
     <%# <input id='user_name' type=text name='user_name' placeholder='your_name'><br> %>
     <label>Start Date:</label>

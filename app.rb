@@ -64,7 +64,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/request_stay/:id') do
-    session[:property_id] = params[:id]
+    @available_dates = Available_dates.list_date(params[:id])
     erb :request_stay
   end
 
@@ -96,8 +96,6 @@ class Makers_bnb < Sinatra::Base
 
   post ('/edit_prop/:id') do 
     Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
-    p params[:start_date]
-    p params[:end_date]
     Available_dates.edit_dates(params[:start_date], params[:end_date], params[:id])
     redirect ('/properties/user')
   end
