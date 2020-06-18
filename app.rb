@@ -57,6 +57,8 @@ class Makers_bnb < Sinatra::Base
 
   post ('/list_space/post') do
     Model_Makers_bnb.add_property(params[:name], params[:price], params[:description], session[:user].user_id)
+    prop_id = Model_Makers_bnb.get_properties[-1].prop_id
+    Available_dates.add_dates(params[:start_date], params[:end_date], prop_id)
     redirect ('/view_properties')
   end
 

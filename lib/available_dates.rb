@@ -13,4 +13,8 @@ class Available_dates
     result.map { |date| Available_dates.new(date['start_date'], date['end_date'], date['property_id'])}
   end
 
+  def self.add_dates(start_date, end_date, property_id)
+    Database_connection.query("INSERT INTO available_dates (start_date, end_date, property_id) VALUES ('#{start_date}', '#{end_date}', '#{property_id}')")
+  end
+
 end
