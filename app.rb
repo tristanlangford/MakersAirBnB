@@ -1,6 +1,7 @@
 require_relative 'database_connection_setup'
 require 'sinatra/base'
 require_relative './lib/model_makers_bnb'
+require_relative './lib/available_dates'
 require_relative './lib/signup_checks'
 require 'sinatra'
 require 'sinatra/flash'
@@ -57,7 +58,7 @@ class Makers_bnb < Sinatra::Base
 
   post ('/list_space/post') do
     Model_Makers_bnb.add_property(params[:name], params[:price], params[:description], session[:user].user_id)
-    prop_id = Model_Makers_bnb.get_properties[-1].prop_id
+    prop_id = Model_Makers_bnb.get_properties[-1].id
     Available_dates.add_dates(params[:start_date], params[:end_date], prop_id)
     redirect ('/view_properties')
   end
@@ -89,11 +90,15 @@ class Makers_bnb < Sinatra::Base
 
   get ('/edit/:id') do 
     @property = Model_Makers_bnb.get_one_property(params[:id])
+    @available_dates = Available_dates.list_date(params[:id])
     erb :edit_property
   end
 
   post ('/edit_prop/:id') do 
     Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
+    p params[:start_date]
+    p params[:end_date]
+    Available_dates.edit_dates(params[:start_date], params[:end_date], params[:id])
     redirect ('/properties/user')
   end
 
