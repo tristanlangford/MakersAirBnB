@@ -10,7 +10,7 @@ class Model_Makers_bnb
 
       properties = Database_connection.query("SELECT * FROM properties")
 
-      properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"])}
+      properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"], row["user_id"])}
   end
 
   def self.get_users
@@ -29,8 +29,8 @@ class Model_Makers_bnb
     user_array[0]
   end
   
-  def self.add_property(name, price, description)
-    properties = Database_connection.query("INSERT INTO properties (name, price, description) VALUES ('#{name}', '#{price}', '#{description}')")
+  def self.add_property(name, price, description, user_id)
+    properties = Database_connection.query("INSERT INTO properties (name, price, description, user_id) VALUES ('#{name}', '#{price}', '#{description}', '#{user_id}')")
   end
 
   private 

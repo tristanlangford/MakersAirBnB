@@ -65,7 +65,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   post ('/list_space/post') do
-    Model_Makers_bnb.add_property(params[:name], params[:price], params[:description])
+    Model_Makers_bnb.add_property(params[:name], params[:price], params[:description], session[:user].user_id)
     redirect ('/view_properties')
   end
 

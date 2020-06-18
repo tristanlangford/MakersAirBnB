@@ -20,7 +20,7 @@ feature 'sign_in' do
 
         scenario 'email not in database' do 
             visit('/sign_in')
-            fill_in('email', with: 'some_email@hotmail.com')
+            fill_in('email', with: 'some_email1@hotmail.com')
             fill_in('password', with: 'password')
             click_on('sign_in')
             expect(page).to have_content("Email incorrect.")

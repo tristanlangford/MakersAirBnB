@@ -1,3 +1,4 @@
+require 'bcrypt'
 require 'pg'
 def setup_test_database
 
@@ -8,5 +9,12 @@ def setup_test_database
     connection.exec("TRUNCATE users CASCADE;")
 
     connection.exec("TRUNCATE bookings CASCADE;")
+
+    password = BCrypt::Password.create('password')
+
+    connection.exec(("INSERT INTO users (email, first_name, last_name,
+              password, user_id) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', '#{password}', '1');"))
+
+
 
 end

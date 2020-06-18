@@ -30,8 +30,6 @@ describe Booking do
 
     describe 'List_bookings' do
         it ' should return a Booking instance with all booking info' do
-            Database_connection.query(("INSERT INTO users (user_id, email, first_name, last_name,
-                password) VALUES (1, 'some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
 
             Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
 
@@ -51,8 +49,6 @@ describe Booking do
 
     describe 'add_booking' do
       it 'should a booking to the database' do
-        Database_connection.query(("INSERT INTO users (user_id, email, first_name, last_name,
-            password) VALUES (1, 'some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
 
         Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
 

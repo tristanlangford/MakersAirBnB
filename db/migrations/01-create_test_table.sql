@@ -10,7 +10,9 @@ CREATE TABLE users (
     first_name VARCHAR(20),
     last_name VARCHAR(20),
     email VARCHAR(40),
-    password VARCHAR(150)
+    password VARCHAR(150),
+    user_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
 );
 
 CREATE TABLE bookings (
