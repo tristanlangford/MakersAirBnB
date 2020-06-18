@@ -21,6 +21,9 @@
     <input value= 'List Property' type= submit onclick='confirmListing()'>
     </form>
     <div>
+    <form action="/properties/<%=session[:user].user_id%>">
+    <input type="submit" value="back" name='back'/>
+    </form>
     <script>
     function confirmListing() {
     alert("Thanks for listing your home with us!");

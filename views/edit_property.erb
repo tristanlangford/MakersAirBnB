@@ -20,6 +20,9 @@
     <input type=date name='end_date' value=<%=@available_dates.end_date%>><br><br>
     <input value= 'Edit Property' type= submit name = 'edit'>
     </form>
+    <form action="/properties/<%=session[:user].user_id%>">
+    <input type="submit" value="back" name='back'/>
+    </form>
     <div>
   </body>
 </html>
