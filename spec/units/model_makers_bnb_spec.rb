@@ -57,5 +57,12 @@ describe Model_Makers_bnb do
         end
     end
 
+    describe('.edit_property') do
+        it('can edit a property') do
+            Model_Makers_bnb.edit_property(1, 'new_name', 10, 'new decr')
+            expect(Model_Makers_bnb.get_properties.first.name).to eq('new_name')
+        end
+    end
+
 end
 

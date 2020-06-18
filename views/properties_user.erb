@@ -25,6 +25,9 @@
         <form action='/delete/<%=property.id%>' method='post'>
           <input type=submit value='Delete' name='delete'>
         </form>
+        <form action='/edit/<%=property.id%>' method='get'>
+          <input type=submit value='Edit' name='edit'>
+        </form>
       </div>
       <br>
       <%end%>

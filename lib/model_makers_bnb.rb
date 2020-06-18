@@ -13,6 +13,17 @@ class Model_Makers_bnb
       properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"], row["user_id"])}
   end
 
+  def self.get_one_property(property_id)
+
+    property_id_integer = property_id.to_i
+
+    properties = Database_connection.query("SELECT * FROM properties WHERE prop_id = #{property_id_integer}")
+
+    property = properties.map { |row| Property.new( row["name"], row["price"], row["description"], row["prop_id"], row["user_id"])}
+
+    property[0]
+end
+
   def self.get_users
       users = Database_connection.query("SELECT * FROM users")
       users.map { |user| User.new( user['user_id'], user['first_name'], user["last_name"], user["email"]) }
@@ -35,6 +46,11 @@ class Model_Makers_bnb
 
   def self.delete_property(propery_id)
     Database_connection.query("DELETE FROM properties WHERE prop_id = '#{propery_id}'")
+  end
+
+  def self.edit_property(propery_id, name, price, description)
+    Database_connection.query("UPDATE properties SET name = '#{name}', price = '#{price}', description = '#{description}'
+    WHERE prop_id = '#{propery_id}'")
   end
 
   private 

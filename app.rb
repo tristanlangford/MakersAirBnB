@@ -83,5 +83,15 @@ class Makers_bnb < Sinatra::Base
     redirect ('/properties/user')
   end
 
+  get ('/edit/:id') do 
+    @property = Model_Makers_bnb.get_one_property(params[:id])
+    erb :edit_property
+  end
+
+  post ('/edit_prop/:id') do 
+    Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
+    redirect ('/properties/user')
+  end
+
   run! if app_file == $0
 end
