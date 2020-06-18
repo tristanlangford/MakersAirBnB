@@ -8,4 +8,9 @@ class Available_dates
     @prop_id = prop_id
   end
 
+  def self.list_date(prop_id)
+    result = Database_connection.query(("SELECT * FROM available_dates WHERE property_id = '#{prop_id}'"))
+    result.map { |date| Available_dates.new(date['start_date'], date['end_date'], date['property_id'])}
+  end
+
 end
