@@ -13,6 +13,7 @@
     <input id='house_name' type=text name='name' value='<%=@property.name%>'>
     <input type=text name='price' value='<%=@property.price%>'><br>
     <textarea cols=60 rows=10 name='description' value='<%=@property.description%>'></textarea><br>
+    <%=flash[:start_date_before_end_date]%>
     <label>Start Date:</label>
     <input type=date name='start_date' value=<%=@available_dates.start_date%>>
     <label>End Date:</label>

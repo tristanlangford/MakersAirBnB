@@ -11,7 +11,7 @@
   <br>
     <% if !!session[:user] %>
     <%=session[:user].first_name%>
-    <form action="/properties/user" method='get'>
+    <form action="/properties/<%=session[:user].user_id%>" method='get'>
       <input type='submit' value='My Properties'>
     </form>
     <% end %>
