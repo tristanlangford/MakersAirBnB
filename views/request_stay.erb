@@ -1,13 +1,14 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <%# <link rel='stylesheet' href='./style.css'> %>
+    <link rel='stylesheet' href='../style.css'>
     <title>Makers BnB</title>
   </head>
   <body>
   <header>
     <h1>Request Stay </h1>
   </header><br><br>
+    Available from: <%= @available_dates.start_date %> to <%= @available_dates.end_date %>
     <form method=post action='/request_stay'>
     <%# <input id='user_name' type=text name='user_name' placeholder='your_name'><br> %>
     <label>Start Date:</label>
@@ -17,6 +18,9 @@
     <%# <input type="text" id="comments" name="comments"/><br><br> %>
     <textarea cols=60 rows=10 name='comments' placeholder='comments'></textarea><br>
     <input value='Request a stay' type=submit onclick='popUp()'>
+    </form>
+    <form action="/view_properties">
+    <input type="submit" value="back" name='back'/>
     </form>
     <script>
     function popUp() {

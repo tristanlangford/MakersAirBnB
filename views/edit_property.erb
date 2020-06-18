@@ -1,19 +1,27 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <link rel='stylesheet' href='./style.css'>
+    <link rel='stylesheet' href='../style.css'>
     <title>Makers BnB</title>
   </head>
   <body>
   <header>
-    <h1>List a property </h1>
+    <h1>Edit your property </h1>
   </header><br><br>
   <div id='input_house'>
     <form id= edit_property method= Post action='/edit_prop/<%=@property.id%>'>
     <input id='house_name' type=text name='name' value='<%=@property.name%>'>
     <input type=text name='price' value='<%=@property.price%>'><br>
     <textarea cols=60 rows=10 name='description' value='<%=@property.description%>'></textarea><br>
+    <%=flash[:start_date_before_end_date]%>
+    <label>Start Date:</label>
+    <input type=date name='start_date' value=<%=@available_dates.start_date%>>
+    <label>End Date:</label>
+    <input type=date name='end_date' value=<%=@available_dates.end_date%>><br><br>
     <input value= 'Edit Property' type= submit name = 'edit'>
+    </form>
+    <form action="/properties/<%=session[:user].user_id%>">
+    <input type="submit" value="back" name='back'/>
     </form>
     <div>
   </body>

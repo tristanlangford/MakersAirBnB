@@ -1,10 +1,12 @@
 require_relative 'database_connection_setup'
 require 'sinatra/base'
 require_relative './lib/model_makers_bnb'
+require_relative './lib/available_dates'
 require_relative './lib/signup_checks'
 require 'sinatra'
 require 'sinatra/flash'
 require_relative './lib/booking'
+require 'date'
 
 class Makers_bnb < Sinatra::Base
 
@@ -56,12 +58,18 @@ class Makers_bnb < Sinatra::Base
   end
 
   post ('/list_space/post') do
+    if Date.parse(params[:start_date]) > Date.parse(params[:end_date])
+      flash[:start_date_before_end_date] = "The start date you have entered is before the end date"
+      redirect('/list_space')
+    end
     Model_Makers_bnb.add_property(params[:name], params[:price], params[:description], session[:user].user_id)
+    prop_id = Model_Makers_bnb.get_properties[-1].id
+    Available_dates.add_dates(params[:start_date], params[:end_date], prop_id)
     redirect ('/view_properties')
   end
 
   get ('/request_stay/:id') do
-    session[:property_id] = params[:id]
+    @available_dates = Available_dates.list_date(params[:id])
     erb :request_stay
   end
 
@@ -70,7 +78,7 @@ class Makers_bnb < Sinatra::Base
     redirect ('/view_properties')
   end
 
-  get ('/properties/user') do
+  get ('/properties/:id') do
     @properties = Model_Makers_bnb.get_properties
     erb :properties_user
   end
@@ -87,13 +95,20 @@ class Makers_bnb < Sinatra::Base
 
   get ('/edit/:id') do 
     @property = Model_Makers_bnb.get_one_property(params[:id])
+    @available_dates = Available_dates.list_date(params[:id])
     erb :edit_property
   end
 
   post ('/edit_prop/:id') do 
+    if Date.parse(params[:start_date]) > Date.parse(params[:end_date])
+      flash[:start_date_before_end_date] = "The start date you have entered is before the end date"
+      redirect("/edit/#{params[:id]}")
+    end
     Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
+    Available_dates.edit_dates(params[:start_date], params[:end_date], params[:id])
     redirect ('/properties/user')
   end
 
   run! if app_file == $0
+
 end
