@@ -6,17 +6,12 @@
   </head>
   <body>
   <header>
-    <h1>Available Properties</h1>
+    <h1>Hi <%=session[:user].first_name%> please see your listed propeties</h1>
   </header>
-    <% if !!session[:user] %>
-    <%=session[:user].first_name%>
-    <form action="/properties/user" method='GET'>
-      <input type='button' value='My Properties'>
-    </form>
-    <% end %>
     <p>
     <div id = 'container'>
       <%@properties.each do |property| %>
+      <%if property.user_id == session[:user].user_id%>
       <div id = 'property'>
         <span>Title: <%=property.name%></span>
         <br>
@@ -29,6 +24,7 @@
         </form>
       </div>
       <br>
+      <%end%>
       <%end%>
     </div>
     </p>
