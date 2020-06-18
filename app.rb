@@ -79,6 +79,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/properties/user') do
+    @properties = Model_Makers_bnb.get_properties
     erb :properties_user
   end
 
