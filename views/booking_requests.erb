@@ -11,12 +11,14 @@
    <div id = 'container'>
       <%@bookings.each do |booking| %>
       <div id = 'booking'>
+       <br>
+        <span>There is a request for the following property: <%=booking[3]%></span>
         <br>
-        <span><%=booking.start_date%></span>
+        <span>from: <%=booking[1]%></span>
         <br>
-        <span><%=booking.end_date%></span>
+        <span>until: <%=booking[2]%></span>
         <br>
-        <span><%=booking.comments%></span>
+        <span><%=booking[4]%></span>
         <br>
         <form>
           <input type=submit value='Confirm'>

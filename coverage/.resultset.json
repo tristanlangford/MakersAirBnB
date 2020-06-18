@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/features/booking_confirmation_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/booking_confirmation_spec.rb": {
         "lines": [
           1,
           1,
@@ -44,7 +44,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/web_helper.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/web_helper.rb": {
         "lines": [
           1,
           6,
@@ -74,7 +74,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/features/crud_properties_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/crud_properties_spec.rb": {
         "lines": [
           1,
           null,
@@ -122,7 +122,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/features/feature_test_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/feature_test_spec.rb": {
         "lines": [
           1,
           null,
@@ -190,7 +190,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/features/sign_in_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/sign_in_spec.rb": {
         "lines": [
           1,
           null,
@@ -252,7 +252,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/features/signup_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/signup_spec.rb": {
         "lines": [
           1,
           null,
@@ -334,7 +334,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/units/booking_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/booking_spec.rb": {
         "lines": [
           1,
           null,
@@ -418,7 +418,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/units/model_makers_bnb_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/model_makers_bnb_spec.rb": {
         "lines": [
           1,
           1,
@@ -490,7 +490,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/units/properties_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/properties_spec.rb": {
         "lines": [
           1,
           null,
@@ -516,7 +516,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/units/signup_checks_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/signup_checks_spec.rb": {
         "lines": [
           1,
           null,
@@ -579,7 +579,7 @@
           null
         ]
       },
-      "/Users/nikita/Developer/Projects/FullCourse/Week6/MakersAirBnB/spec/units/user_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -597,6 +597,6 @@
         ]
       }
     },
-    "timestamp": 1592495036
+    "timestamp": 1592499461
   }
 }

@@ -31,7 +31,7 @@ class Booking
       user_bookings = Database_connection.query("SELECT * FROM bookings
         JOIN properties ON bookings.property_id = properties.prop_id
         WHERE user_id = '#{user_id}'; ")
-      user_bookings.map
+      user_bookings.map { |booking| booking['booking_id'], booking['start_date'], booking['end_date'], booking['name'], booking['comments'] }
 
     end
 
