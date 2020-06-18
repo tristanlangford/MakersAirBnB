@@ -4,6 +4,7 @@ require_relative './lib/model_makers_bnb'
 require_relative './lib/signup_checks'
 require 'sinatra'
 require 'sinatra/flash'
+require_relative './lib/booking'
 
 class Makers_bnb < Sinatra::Base
 
@@ -70,11 +71,12 @@ class Makers_bnb < Sinatra::Base
   end
 
   get ('/request_stay/:id') do
+    p params
     erb :request_stay
   end
 
-  post ('/request_stay') do
-    p params
+  post ('/request_stay/:id') do
+    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user],)
     redirect ('/view_properties')
   end
 
