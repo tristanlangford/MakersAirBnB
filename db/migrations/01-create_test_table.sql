@@ -27,7 +27,7 @@ CREATE TABLE bookings (
     FOREIGN KEY (property_id) REFERENCES properties(prop_id)
 );
 
-CREATE TABLE avaiable_dates (
+CREATE TABLE avaliable_dates (
     date_id SERIAL PRIMARY KEY,
     start_date VARCHAR(15),
     end_date VARCHAR(15),
