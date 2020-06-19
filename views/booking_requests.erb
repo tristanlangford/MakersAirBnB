@@ -1,16 +1,16 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <link rel='stylesheet' href='./style.css'>
+    <link rel='stylesheet' href='../style.css'>
     <title>Makers BnB</title>
   </head>
   <body>
   <header>
     <h1>Booking Requests</h1>
-  </header>
-   <div id = 'container'>
+  </header><br><br>
+   <div id ='container'>
       <%@bookings.each do |booking| %>
-      <div id = 'booking'>
+      <div id = 'property'>
        <br>
         <span>There is a request for the following property: <%=booking[:name]%></span>
         <br>
@@ -27,7 +27,7 @@
         <%else%>
           Confirmed
         <%end%>
-      </div>
+      </div><br> 
       <%end%>
       <br>
       <form action="/view_properties">
