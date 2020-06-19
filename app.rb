@@ -70,11 +70,12 @@ class Makers_bnb < Sinatra::Base
 
   get ('/request_stay/:id') do
     @available_dates = Available_dates.list_date(params[:id])
+    session[:id] = params[:id]
     erb :request_stay
   end
 
   post ('/request_stay') do
-    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:property_id])
+    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:id])
     redirect ('/view_properties')
   end
 
