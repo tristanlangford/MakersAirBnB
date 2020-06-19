@@ -6,11 +6,14 @@
   </head>
   <body>
   <header>
+      <% if !!session[:user] %>
+    Hi <%=session[:user].first_name%>
+    <% end %>
+
     <h1>Available Properties</h1>
-  </header>
+  </header><br>
   <br>
     <% if !!session[:user] %>
-    <%=session[:user].first_name%>
     <form action="/properties/<%=session[:user].user_id%>" method='get'>
       <input type='submit' value='My Properties'>
     </form>
@@ -23,12 +26,12 @@
     <div id = 'container'>
       <%@properties.each do |property| %>
       <div id = 'property'>
-        <span>Title: <%=property.name%></span>
+        <span><%=property.name.capitalize%></span>
         <br>
-        <span><%=property.price%> /night</span>
+        <span>£<%=property.price%> /night</span>
         <br>
-        <span id='desc'>Description </span>
-        <span id='hidden'><%=property.description%></span>
+        <span>Description </span><br><br>
+        <span> <%=property.description.capitalize%></span><br><br>
         <form action='/request_stay/<%=property.id%>' method='GET'>
           <input type=submit value='Request a stay'>
         </form>
