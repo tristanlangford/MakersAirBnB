@@ -3,12 +3,6 @@ require_relative '../web_helper'
 feature Makers_bnb do
 
 
-    scenario 'has a title for each property' do
-      Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
-      visit('/view_properties')
-      expect(page).to have_content('Title')
-    end
-
     scenario 'has a price for each property' do
       Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
       signin_user
@@ -49,7 +43,7 @@ feature Makers_bnb do
       fill_in "start_date", with: "2020-01-01"
       fill_in "end_date", with: "2020-10-01"
       click_button('List Property')
-      expect(page).to have_content('party house')
+      expect(page).to have_content('Party house')
       expect(page).to have_content('80')
       expect(page).to have_content('This is a description')
     end
