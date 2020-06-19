@@ -100,5 +100,9 @@ class Makers_bnb < Sinatra::Base
     erb :booking_requests
   end
 
+  post ('/confirm_booking/:id') do
+    redirect ('/booking_requests')
+  end
+
   run! if app_file == $0
 end

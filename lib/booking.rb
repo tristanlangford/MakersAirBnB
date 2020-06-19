@@ -33,7 +33,6 @@ class Booking
         WHERE user_id = '#{user_id}'; ")
 
         user_bookings.map do |booking| { booking_id: booking['booking_id'], start_date: booking['start_date'],
-        end_date: booking['end_date'], name: booking['name'], comments: booking['comments'] } end
+        end_date: booking['end_date'], name: booking['name'], comments: booking['comments'], confirmed: ['confirmation']} end
     end
-
 end
