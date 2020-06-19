@@ -7,7 +7,6 @@ require 'sinatra/flash'
 require_relative './lib/booking'
 
 class Makers_bnb < Sinatra::Base
-
   enable :sessions
   register Sinatra::Flash
 
@@ -19,7 +18,6 @@ class Makers_bnb < Sinatra::Base
     @properties = Model_Makers_bnb.get_properties
     erb :properties
   end
-
 
   get ('/sign_in') do
     erb :sign_in
