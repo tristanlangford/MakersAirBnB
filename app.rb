@@ -73,8 +73,8 @@ class Makers_bnb < Sinatra::Base
     erb :request_stay
   end
 
-  post ('/request_stay') do
-    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:property_id])
+  post ('/request_stay/:id') do
+    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, params[:id])
     redirect ('/view_properties')
   end
 
@@ -88,18 +88,18 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
-  post ('/delete/:id') do 
+  post ('/delete/:id') do
     Model_Makers_bnb.delete_property(params[:id])
     redirect ('/properties/user')
   end
 
-  get ('/edit/:id') do 
+  get ('/edit/:id') do
     @property = Model_Makers_bnb.get_one_property(params[:id])
     @available_dates = Available_dates.list_date(params[:id])
     erb :edit_property
   end
 
-  post ('/edit_prop/:id') do 
+  post ('/edit_prop/:id') do
     if Date.parse(params[:start_date]) > Date.parse(params[:end_date])
       flash[:start_date_before_end_date] = "The start date you have entered is before the end date"
       redirect("/edit/#{params[:id]}")
