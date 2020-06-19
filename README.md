@@ -1,4 +1,4 @@
-# Makersbnb
+# MakersAirBnB
 
 ## What is MakersAirBnB?
 
