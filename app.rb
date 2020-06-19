@@ -74,18 +74,23 @@ class Makers_bnb < Sinatra::Base
     erb :request_stay
   end
 
+
   post ('/request_stay') do
     @available_dates = Available_dates.list_date(session[:id])
+    
     if @available_dates == nil
       flash[:no_dates_added] = "Sorry, property is currently unavailable"
       redirect("/request_stay/#{session[:id]}")
     end
+    
     start_date = Date.parse(@available_dates.start_date) > Date.parse(params[:start_date])
     end_date = Date.parse(@available_dates.end_date) < Date.parse(params[:end_date])
+    
     if start_date || end_date
       flash[:start_date_before_end_date] = "Not available for the dates you selected"
       redirect("/request_stay/#{session[:id]}")
     end
+    
     Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:id])
     redirect ('/view_properties')
   end
@@ -100,25 +105,36 @@ class Makers_bnb < Sinatra::Base
     erb :properties
   end
 
-  post ('/delete/:id') do 
+  post ('/delete/:id') do
     Model_Makers_bnb.delete_property(params[:id])
     redirect ('/properties/user')
   end
 
-  get ('/edit/:id') do 
+  get ('/edit/:id') do
     @property = Model_Makers_bnb.get_one_property(params[:id])
     @available_dates = Available_dates.list_date(params[:id])
     erb :edit_property
   end
 
-  post ('/edit_prop/:id') do 
+  post ('/edit_prop/:id') do
     if Date.parse(params[:start_date]) > Date.parse(params[:end_date])
       flash[:start_date_before_end_date] = "The start date you have entered is before the end date"
       redirect("/edit/#{params[:id]}")
     end
+    
     Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
     Available_dates.edit_dates(params[:start_date], params[:end_date], params[:id])
     redirect ('/properties/user')
+  end
+
+  get ('/booking_requests') do
+    @bookings = Booking.list_user_bookings(session[:user].user_id)
+    erb :booking_requests
+  end
+
+  post ('/confirm_booking/:id') do
+    Booking.confirm_booking(params[:id])
+    redirect ('/booking_requests')
   end
 
   run! if app_file == $0
