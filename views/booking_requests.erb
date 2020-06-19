@@ -20,7 +20,7 @@
         <br>
         <span><%=booking[:comments]%></span>
         <br>
-        <%if booking[:confirmation] = 'n' %>
+        <%if booking[:confirmation] == 'n' %>
           <form action = '/confirm_booking/<%=booking[:booking_id]%>' method=post>
             <input type=submit value='Confirm'>
           </form>
