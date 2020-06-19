@@ -2,7 +2,6 @@ require_relative 'data_base_connection'
 require 'uri'
 
 class SignupChecks
-
   VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
 
   def self.check_email_exists(email)

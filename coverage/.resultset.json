@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/feature_test_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/feature_test_spec.rb": {
         "lines": [
           1,
           1,
@@ -32,7 +32,6 @@
           1,
           1,
           1,
-          null,
           null,
           null,
           null,
@@ -75,10 +74,14 @@
           null
         ]
       },
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/sign_in_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/my_properties_spec.rb": {
+        "lines": [
+
+        ]
+      },
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/sign_in_spec.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
           1,
@@ -96,7 +99,6 @@
           null,
           null,
           1,
-          null,
           1,
           1,
           1,
@@ -130,17 +132,14 @@
           1,
           1,
           1,
-          null,
-          null,
           null,
           null,
           null
         ]
       },
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/features/signup_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/features/signup_spec.rb": {
         "lines": [
           1,
-          null,
           1,
           10,
           null,
@@ -175,7 +174,6 @@
           null,
           null,
           1,
-          null,
           1,
           4,
           4,
@@ -221,19 +219,89 @@
           null
         ]
       },
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/model_makers_bnb_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/booking_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          7,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/model_makers_bnb_spec.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          null,
           1,
-          null,
           7,
           null,
           null,
-          null,
           1,
           1,
           null,
@@ -247,7 +315,6 @@
           null,
           null,
           1,
-          null,
           1,
           1,
           null,
@@ -261,7 +328,6 @@
           null,
           null,
           1,
-          null,
           1,
           1,
           1,
@@ -276,14 +342,12 @@
           1,
           1,
           1,
-          null,
-          null,
           null,
           null,
           null
         ]
       },
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/properties_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/properties_spec.rb": {
         "lines": [
           1,
           null,
@@ -305,38 +369,28 @@
           1,
           1,
           null,
-          null,
           null
         ]
       },
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/signup_checks_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/signup_checks_spec.rb": {
         "lines": [
           1,
           null,
           1,
-          null,
-          6,
-          null,
-          null,
           1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
+          5,
           null,
           null,
           null,
           1,
           1,
           1,
+          1,
+          1,
           null,
           null,
+          1,
+          1,
           1,
           1,
           null,
@@ -353,7 +407,16 @@
           null,
           null,
           1,
+          1,
+          1,
           null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
           1,
           1,
           1,
@@ -372,12 +435,11 @@
           null
         ]
       },
-      "/Users/chriscooney/projects/makers/Week_6/MakersAirBnB/spec/units/user_spec.rb": {
+      "/Users/katiemcdonagh/w6/MakersAirBnB/spec/units/user_spec.rb": {
         "lines": [
           1,
           null,
           1,
-          null,
           1,
           null,
           1,
@@ -385,13 +447,11 @@
           1,
           1,
           1,
-          null,
-          null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1592471163
+    "timestamp": 1592549926
   }
 }

@@ -28,11 +28,11 @@ class Makers_bnb < Sinatra::Base
   post ('/sign_in') do
     sign_in_response = SignupChecks.sign_in_checks(params[:email], params[:password])
     if sign_in_response == :email_does_not_exist
-      flash[:email_does_not_exist] = "Email incorrect."
+      flash[:email_does_not_exist] = 'Email incorrect.'
       redirect('/sign_in')
     elsif
       sign_in_response == :passwords_do_not_match
-      flash[:passwords_do_not_match] = "Password incorrect."
+      flash[:passwords_do_not_match] = 'Password incorrect.'
       redirect('/sign_in')
     end
     session[:user] = Model_Makers_bnb.get_users_for_signin(params[:email])
@@ -46,13 +46,13 @@ class Makers_bnb < Sinatra::Base
   post ('/signup') do
     signup_response = SignupChecks.signup_checks(params[:email], params[:password], params[:confirm_password])
     if signup_response == :email_exists
-      flash[:email_exists] = "An account already exists with this email address."
+      flash[:email_exists] = 'An account already exists with this email address.'
       redirect('/signup')
     elsif signup_response == :passwords_do_not_match
       flash[:passwords_do_not_match] = "Passwords don't match."
       redirect('/signup')
     elsif signup_response == :email_format_incorrect
-      flash[:email_format_incorrect] = "Email address is invalid."
+      flash[:email_format_incorrect] = 'Email address is invalid.'
       redirect('/signup')
     end
 

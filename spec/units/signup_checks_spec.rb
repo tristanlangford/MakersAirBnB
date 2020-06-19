@@ -1,21 +1,22 @@
 require 'signup_checks'
 
 describe SignupChecks do
-
-  let(:add_user) { Database_connection.query(("INSERT INTO users (email, first_name, last_name,
-  password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');")) }
+  let(:add_user) {
+    Database_connection.query(("INSERT INTO users (email, first_name, last_name,
+    password) VALUES ('some_email@hotmail.com', 'Tristan', 'Langford', 'password');"))
+  }
 
   describe '#check_email_exists' do
-    it "checks to see if email already exists in DB" do
-        add_user
-        email = 'some_email@hotmail.com'
-        expect(SignupChecks.check_email_exists(email)).to eq(true)
+    it 'checks to see if email already exists in DB' do
+      add_user
+      email = 'some_email@hotmail.com'
+      expect(SignupChecks.check_email_exists(email)).to eq(true)
     end
 
-    it "checks to see if email already exists in DB" do
-        add_user
-        email = 'som_email@hotmail.com'
-        expect(SignupChecks.check_email_exists(email)).to eq(false)
+    it 'checks to see if email already exists in DB' do
+      add_user
+      email = 'som_email@hotmail.com'
+      expect(SignupChecks.check_email_exists(email)).to eq(false)
     end
   end
 
@@ -40,7 +41,6 @@ describe SignupChecks do
   end
 
   describe '#signup_checks' do
-
     it 'returns email exists when #check_email_exists is true' do
       add_user
       expect(SignupChecks.signup_checks('some_email@hotmail.com', 'password', 'password')).to eq(:email_exists)
