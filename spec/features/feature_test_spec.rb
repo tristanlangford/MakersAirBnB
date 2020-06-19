@@ -11,12 +11,14 @@ feature Makers_bnb do
 
     scenario 'has a price for each property' do
       Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
+      signin_user
       visit('/view_properties')
       expect(page).to have_content('/night')
     end
 
     scenario 'has a description for each property' do
       Database_connection.query(("INSERT INTO properties VALUES (1, 'house 1', 'top house' ,'100' );"))
+      signin_user
       visit('/view_properties')
       expect(page).to have_content('Description')
     end
@@ -25,11 +27,13 @@ feature Makers_bnb do
 
   feature('allows a property owner to list a new space') do
     scenario 'It has a separate page for listing a new space' do 
+      signin_user
       visit('/list_space')
       expect(page).to have_content('List a property')
     end
 
     scenario 'It allows a property owner to input info on new space' do
+      signin_user
       visit('/list_space')
       expect(page).to have_field('name')
       expect(page).to have_field('price')
@@ -42,6 +46,8 @@ feature Makers_bnb do
       fill_in 'name', with: 'party house'
       fill_in 'price', with: '80'
       fill_in 'description', with: 'This is a description'
+      fill_in "start_date", with: "2020-01-01"
+      fill_in "end_date", with: "2020-10-01"
       click_button('List Property')
       expect(page).to have_content('party house')
       expect(page).to have_content('80')

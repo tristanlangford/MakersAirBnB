@@ -70,11 +70,28 @@ class Makers_bnb < Sinatra::Base
 
   get ('/request_stay/:id') do
     @available_dates = Available_dates.list_date(params[:id])
+    session[:id] = params[:id]
     erb :request_stay
   end
 
-  post ('/request_stay/:id') do
-    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, params[:id])
+
+  post ('/request_stay') do
+    @available_dates = Available_dates.list_date(session[:id])
+    
+    if @available_dates == nil
+      flash[:no_dates_added] = "Sorry, property is currently unavailable"
+      redirect("/request_stay/#{session[:id]}")
+    end
+    
+    start_date = Date.parse(@available_dates.start_date) > Date.parse(params[:start_date])
+    end_date = Date.parse(@available_dates.end_date) < Date.parse(params[:end_date])
+    
+    if start_date || end_date
+      flash[:start_date_before_end_date] = "Not available for the dates you selected"
+      redirect("/request_stay/#{session[:id]}")
+    end
+    
+    Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:id])
     redirect ('/view_properties')
   end
 
