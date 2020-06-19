@@ -1,91 +1,34 @@
-# MakersAirBnB
+# Makersbnb
 
-## High Level Goal
-- Create an AirBnB clone that allows uses to list spaces they have available and book spaces for the night.
+## What is MakersAirBnB?
 
-## Headline Spec 
-- Any signed-up user can list a new space.
-- Users can list multiple spaces.
-- Users should be able to name their space, provide a short description of the space, and a price per night.
-- Users should be able to offer a range of dates where their space is available.
-- Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
-- Nights for which a space has already been booked should not be available for users to book that space.
-- Until a user has confirmed a booking request, that space can still be booked for that night.
+This is a team project created in response to the Makers BnB challenge. In the space of a week, we created an Airbnb clone that allowed a user to list a space, view a property, make a booking, and confirm that booking. 
 
-## User Stories
-```
-As a user, 
-so that I can sign-in,
-I would like to be able to sign-up
+There were four people in the team - Tristan, Katie, Chris, and Nikita. The main goal of the week was to work as a team for the first time, and so we've detailed both our approach to challenge and our approach to teamwork here. 
 
-As a user, 
-so that I can sign-in,
-I would like to be able to sign-in
+## How to use MakersAirBnB?
 
-As a property owner, 
-so that other people can view my space,
-I would like to be able list a space
+## How to use the app?
 
-As a property owner, 
-so that other people can find my space,
-I would like to be able to name my space 
+MakersBnB is a web app built with Ruby; it uses Sinatra as its web framework. In order to try out the app, please go through the following steps:
 
-As a property owner, 
-so that other people can find my space,
-I would like to be able to describe my space 
+1. Clone the app using the green **Clone or Download** button above.
+2. Install bundler (take a look [here](https://bundler.io/) if you don't know how to do that) and then run `bundle` to install the dependencies.
+4. Open the `db/migrations` file, and run the commands in `psql`, the [command-line front-end for PostgreSQL](http://postgresguide.com/utilities/psql.html).
+3. In the app's root directory, run `rackup` on the command line to start the server.
+4. Visit http://localhost:9292 in your browser to try out the app - you'll need to hit the "Sign up" button on the landing page to explore the site.
 
-As a property owner, 
-so that other people can find my space,
-I would like to be able to show the price per night for my space 
+### How to run the tests?
 
-As a property owner, 
-so that other people can see when my space is available,
-I would like to be able to show a range of available dates
+We used TDD to build this app and wrote our tests using RSpec and Capybara. When you're in the app's root directory run `rspec` on the command line run the tests. 
 
-As a holiday maker, 
-so that I can see if a space is available when I want,
-I would like to be able to see a range of dates when a space is of available
+## Product Limitations
 
-As a property owner,
-so that I avoid double-booking
-I would like the date range to show when a propert is already booked
+Given more time, there are other things we would like to have done with MakersAirBnB. Below is a list of things we would consider and/or implement going forwards were we to continue this project:
 
-As a holiday maker, 
-so that I can book a space,
-I would like to be able to book a property
-
-As a property owner,
-so that I can control who books my property,
-I would like to be able to confirm before booking
-
-As a propert owner 
-so that I can choose between multiple booking requests,
-My property should remain avialable until I've confirmed a request. 
-
-As a property owner, 
-so that that I make loads of money,
-I would like to be able to list multiple spaces
-
-As a holiday maker, 
-so that I can choose a space to book,
-I would like to be able to view all spaces
-```
-
-
-
-## Nice-to-haves
-- Users should receive an email whenever one of the following happens:
-- They sign up
-- They create a space
-- They update a space
-- A user requests to book their space
-- They confirm a request
-- They request to book a space
-- Their request to book a space is confirmed
-- Their request to book a space is denied
-- Users should receive a text message to a provided number whenever one of the following happens:
-- A user requests to book their space
-- Their request to book a space is confirmed
-- Their request to book a space is denied
-- A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
-- Basic payment implementation though Stripe.
+### Product Features
+- Currently, a property-owner can book their own property - we would remove this option. 
+- Currently, a property-owner cannot deny a request to book their property, merely leave it "on read" - we would build this feature. 
+  - Following on from the above, we would implement a "Bookings" page where the holiday-maker could see their bookings and receive notifications about whether their request had been confirmed or denied. 
+- Currently, there is no price-calculator so a user can see the total price of their trip before they make the request. 
+- We would allow the user to receive email communication regarding bookings. 
