@@ -2,9 +2,9 @@
 
 ## What is MakersAirBnB?
 
-This is a team project created in response to the Makers BnB challenge. In the space of a week, we created an Airbnb clone that allowed a user to list a space, view a property, make a booking, and confirm that booking. 
+This is a team project created in response to the [Makers BnB challenge](https://github.com/tristanlangford/MakersAirBnB/blob/master/CHALLENGE.md). In the space of a week, we created an Airbnb clone that allowed a user to list a space, view a property, make a booking, and confirm that booking. 
 
-There were four people in the team - Tristan, Katie, Chris, and Nikita. The main goal of the week was to work as a team for the first time, and so we've detailed both our approach to challenge and our approach to teamwork here. 
+There were four people in the team - Tristan, Katie, Chris, and Nikita. The main goal of the week was to work as a team for the first time, and so we've detailed both our approach to challenge and our approach to teamwork [here](https://github.com/tristanlangford/MakersAirBnB/blob/master/PROCESS.md). 
 
 ## How to use MakersAirBnB?
 
