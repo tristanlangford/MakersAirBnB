@@ -76,10 +76,12 @@ class Makers_bnb < Sinatra::Base
 
   post ('/request_stay') do
     @available_dates = Available_dates.list_date(session[:id])
-    p @available_dates.start_date 
-    p Date.parse(params[:start_date])
-      # flash[:start_date_before_end_date] = "The start date you have entered is before the end date"
-      # redirect("/request_stay/#{session[:id]}")
+    # p Date.parse(@available_dates.start_date)
+    # p Date.parse(params[:start_date])
+    if Date.parse(@available_dates.start_date) > Date.parse(params[:start_date])
+      flash[:start_date_before_end_date] = "Not available for the dates you selected"
+      redirect("/request_stay/#{session[:id]}")
+    end
     Booking.add_booking(params[:start_date], params[:end_date], params[:comments], session[:user].user_id, session[:id])
     redirect ('/view_properties')
   end
