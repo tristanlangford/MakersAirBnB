@@ -63,4 +63,35 @@ describe Booking do
         expect(property.first.confirmation).to eq('n')
       end
     end
+
+  describe 'list_user_bookings' do
+
+    it "should return an array of the user's bookings" do
+
+      Database_connection.query(("INSERT INTO properties VALUES ('1', 'house 1', 'top house' ,'100', '1');"))
+
+      Booking.add_booking('2020-01-01', '2020-01-10', 'nice place!', '2', '1')
+
+      user_bookings = Booking.list_user_bookings('1')
+
+      expect(user_bookings.first[:start_date]).to eq('2020-01-01')
+    end
+  end
+
+  describe '#confirm_booking' do
+    it "should alter the booking confirmation from 'n' to 'y'" do
+
+      Database_connection.query(("INSERT INTO properties VALUES ('1', 'house 1', 'top house' ,'100', '1');"))
+
+      Database_connection.query("INSERT INTO bookings VALUES ('1', '2020-01-01', '2020-01-10', 'nice place!', '2', '1')")
+
+      Database_connection.query("INSERT INTO available_dates VALUES ('1', '2020-01-01', '2020-01-10', '1')")
+
+      Booking.confirm_booking('1')
+
+      user_bookings = Booking.list_user_bookings('1')
+
+      expect(user_bookings.first[:confirmed]).to eq('y')
+    end
+  end
 end

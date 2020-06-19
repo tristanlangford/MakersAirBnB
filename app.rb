@@ -104,9 +104,20 @@ class Makers_bnb < Sinatra::Base
       flash[:start_date_before_end_date] = "The start date you have entered is before the end date"
       redirect("/edit/#{params[:id]}")
     end
+    
     Model_Makers_bnb.edit_property(params[:id], params[:name], params[:price], params[:description])
     Available_dates.edit_dates(params[:start_date], params[:end_date], params[:id])
     redirect ('/properties/user')
+  end
+
+  get ('/booking_requests') do
+    @bookings = Booking.list_user_bookings(session[:user].user_id)
+    erb :booking_requests
+  end
+
+  post ('/confirm_booking/:id') do
+    Booking.confirm_booking(params[:id])
+    redirect ('/booking_requests')
   end
 
   run! if app_file == $0
