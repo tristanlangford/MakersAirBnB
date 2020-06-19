@@ -55,10 +55,26 @@ feature Makers_bnb do
       visit('/list_space') 
       fill_in 'name', with: 'party house'
       fill_in 'price', with: '80'
+      fill_in "start_date", with: "2020-01-01"
+      fill_in "end_date", with: "2020-10-01"
       fill_in 'description', with: 'This is a description'
       click_button('List Property')
       click_button('Request a stay')
       expect(page).to have_field('comments')
+    end
+
+    scenario 'each property renders with a button to request a stay' do
+      signin_user
+      visit('/list_space') 
+      fill_in 'name', with: 'party house'
+      fill_in 'price', with: '80'
+      fill_in 'description', with: 'This is a description'
+      fill_in "start_date", with: "2020-01-01"
+      fill_in "end_date", with: "2020-10-01"
+      click_button('List Property')
+      click_button('Request a stay')
+      expect(page).to have_content('01/01/2020')
+      expect(page).to have_content('01/10/2020')
     end
   end
 

@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <link rel='stylesheet' href='./style.css'>
+    <link rel='stylesheet' href='../style.css'>
     <title>Makers BnB</title>
   </head>
   <body>
@@ -9,7 +9,7 @@
     <h1>Hi <%=session[:user].first_name%> please see your listed propeties</h1>
   </header>
   <form action = '/list_space' method ='get'>
-  <input type = 'submit' value = 'View Properties'>
+  <input type = 'submit' value = 'New Property'>
 </form>
     <p>
     <div id = 'container'>
@@ -33,6 +33,9 @@
       <%end%>
       <%end%>
     </div>
+    <form action="/view_properties">
+    <input type="submit" value="back" name='back'/>
+    </form>
     </p>
   </body>
 </html>
