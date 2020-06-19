@@ -17,7 +17,7 @@ Decisions we made about the product...
 ## Day Plan/Structure
 
 * We began each day with a kick-off to decide what we would work on, and how we would work (pairs or mob etc.). 
-* We had broken down the spec into user stories and added those to ]our trello board](https://trello.com/b/hSAV4GE7/makersbnb), ordering in terms of requirements and priority. (User Stories below)
+* We had broken down the spec into user stories and added those to [our trello board](https://trello.com/b/hSAV4GE7/makersbnb), ordering in terms of requirements and priority. (User Stories below)
 * We used google docs to plan areas of our project that needed confirming. We would touch base before lunch to discuss our progress and do any pull requests we had completed in the morning. 
 * Finally, we would meet at the end of the day to discuss our progress and do any pull requests.
 
