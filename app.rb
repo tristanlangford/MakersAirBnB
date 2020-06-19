@@ -76,6 +76,10 @@ class Makers_bnb < Sinatra::Base
 
   post ('/request_stay') do
     @available_dates = Available_dates.list_date(session[:id])
+    if @available_dates == nil
+      flash[:no_dates_added] = "Sorry, property is currently unavailable"
+      redirect("/request_stay/#{session[:id]}")
+    end
     start_date = Date.parse(@available_dates.start_date) > Date.parse(params[:start_date])
     end_date = Date.parse(@available_dates.end_date) < Date.parse(params[:end_date])
     if start_date || end_date
