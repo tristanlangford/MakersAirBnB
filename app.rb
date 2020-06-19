@@ -101,6 +101,7 @@ class Makers_bnb < Sinatra::Base
   end
 
   post ('/confirm_booking/:id') do
+    Booking.confirm_booking(params[:id])
     redirect ('/booking_requests')
   end
 
