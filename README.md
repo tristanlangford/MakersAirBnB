@@ -21,14 +21,3 @@ MakersBnB is a web app built with Ruby; it uses Sinatra as its web framework. In
 ### How to run the tests?
 
 We used TDD to build this app and wrote our tests using RSpec and Capybara. When you're in the app's root directory run `rspec` on the command line run the tests. 
-
-## Product Limitations
-
-Given more time, there are other things we would like to have done with MakersAirBnB. Below is a list of things we would consider and/or implement going forwards were we to continue this project:
-
-### Product Features
-- Currently, a property-owner can book their own property - we would remove this option. 
-- Currently, a property-owner cannot deny a request to book their property, merely leave it "on read" - we would build this feature. 
-  - Following on from the above, we would implement a "Bookings" page where the holiday-maker could see their bookings and receive notifications about whether their request had been confirmed or denied. 
-- Currently, there is no price-calculator so a user can see the total price of their trip before they make the request. 
-- We would allow the user to receive email communication regarding bookings. 
